@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "industries": "Industries",
+    "team": "Team",
+    "resources": "Resources",
+    "getInTouch": "Get in Touch"
+  },
+  "industries": {
+    "accounting": "Accounting Firms",
+    "ecommerce": "E-commerce",
+    "education": "Educational Institutions"
+  },
+  "hero": {
+    "headline": "Automate the boring stuff. Build the business you dreamed of.",
+    "subheadline": "We help mid-sized organizations eliminate repetitive work and transform operations from reactive chaos to strategic efficiency with AI-powered automation.",
+    "scheduleAudit": "Schedule Free Audit",
+    "seeHowItWorks": "See How It Works",
+    "noCreditCard": "No credit card required",
+    "quickSetup": "15-min setup"
+  },
+  "verticals": {
+    "headline": "Automation Solutions for Your Industry",
+    "subheadline": "We specialize in AI automation for three key sectors experiencing operational chaos",
+    "accounting": {
+      "title": "Accounting Firms",
+      "description": "Transform from tax preparation mill to strategic advisory partner",
+      "painPoints": {
+        "1": "66% of staff time on manual data entry",
+        "2": "300+ scattered process manuals",
+        "3": "5+ disconnected systems"
+      },
+      "results": {
+        "1": "20-30% time reclaimed",
+        "2": "66% more documents processed",
+        "3": "60% faster query resolution"
+      }
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "description": "Scale operations without proportional staff increases",
+      "painPoints": {
+        "1": "Fragmented systems (inventory, CRM, logistics)",
+        "2": "20-30 hours/week on repetitive tasks",
+        "3": "Customer service bottlenecks"
+      },
+      "results": {
+        "1": "20-30 hours/week saved",
+        "2": "60-70% faster customer responses",
+        "3": "300-500% ROI in first year"
+      }
+    },
+    "education": {
+      "title": "Educational Institutions",
+      "description": "Reduce admin burden while improving student experience",
+      "painPoints": {
+        "1": "3+ hours per student registration",
+        "2": "24% of budget on admin overhead",
+        "3": "Fragmented legacy systems"
+      },
+      "results": {
+        "1": "88% reduction in registration time",
+        "2": "30-50% lower admin costs",
+        "3": "40%+ increase in satisfaction"
+      }
+    },
+    "learnMore": "Learn More",
+    "talkToExpert": "Talk to Expert",
+    "painPoints": "Pain Points:",
+    "results": "Results:"
+  },
+  "chatbot": {
+    "header": "Chat to Max",
+    "placeholder": "Type your message here...",
+    "send": "Send",
+    "sending": "Sending",
+    "thinking": "Max is thinking...",
+    "securityNote": "Your information is secure and will only be used to provide you with automation solutions"
+  },
+  "solutions": {
+    "headline": "Our Core Solutions",
+    "subheadline": "Advanced AI automation tailored to your operational challenges",
+    "ipa": {
+      "title": "Intelligent Process Automation",
+      "description": "Agentic AI workflows that handle complex, multi-step tasks autonomously",
+      "feature1": "Document processing with OCR",
+      "feature2": "Automated data entry",
+      "feature3": "System-to-system integration"
+    },
+    "ai": {
+      "title": "AI Knowledge Systems",
+      "description": "RAG-based platforms that ingest 300+ process manuals for instant query resolution",
+      "feature1": "Seconds vs. 30-60 minutes search time",
+      "feature2": "Preserve institutional knowledge",
+      "feature3": "Always-current documentation"
+    },
+    "unified": {
+      "title": "Unified Digital Workspaces",
+      "description": "Canvas-style platforms integrating Office 365, SharePoint, and custom systems",
+      "feature1": "Universal search across all systems",
+      "feature2": "Eliminate context-switching",
+      "feature3": "Seamless integration"
+    },
+    "customer": {
+      "title": "Customer Service Automation",
+      "description": "Multilingual AI agents handling 60-85% of queries automatically",
+      "feature1": "Self-service portals",
+      "feature2": "Automated follow-ups",
+      "feature3": "Multi-language support"
+    },
+    "featureVisualization": "Feature visualization"
+  },
+  "trust": {
+    "headline": "Proven Results Across Industries",
+    "subheadline": "Measurable impact for organizations that chose to automate",
+    "hoursSaved": "Hours Saved Per Week",
+    "productivityGain": "Productivity Gain",
+    "queriesAutomated": "Queries Automated",
+    "roi": "ROI in First Year",
+    "trustedBy": "Trusted By"
+  },
+  "cta": {
+    "headline": "Ready to Reclaim Your Time?",
+    "subheadline": "Schedule your free automation audit today. In 45 minutes, we'll identify your biggest opportunities and show you the ROI of intelligent automation.",
+    "scheduleAudit": "Schedule Your Free Audit",
+    "downloadPlaybook": "Download Automation Playbook",
+    "noObligation": "No obligation",
+    "duration": "45-minute call",
+    "customROI": "Custom ROI estimate",
+    "guarantee": "Risk Reversal Guarantee:",
+    "guaranteeText": "If we can't identify at least 15% efficiency gains, the audit is free."
+  },
+  "footer": {
+    "tagline": "Automating the boring stuff so you can build the business you dreamed of.",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "team": "Team",
+    "careers": "Careers",
+    "contact": "Contact",
+    "industries": "Industries",
+    "resources": "Resources",
+    "blog": "Blog",
+    "caseStudies": "Case Studies",
+    "documentation": "Documentation",
+    "roiCalculator": "ROI Calculator",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© 2025 AR Automation. All rights reserved."
+  }
+}

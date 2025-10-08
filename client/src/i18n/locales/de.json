@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "industries": "Branchen",
+    "team": "Team",
+    "resources": "Ressourcen",
+    "getInTouch": "Kontakt aufnehmen"
+  },
+  "industries": {
+    "accounting": "Buchhaltungsfirmen",
+    "ecommerce": "E-Commerce",
+    "education": "Bildungseinrichtungen"
+  },
+  "hero": {
+    "headline": "Automatisieren Sie das Langweilige. Bauen Sie das Unternehmen Ihrer Träume auf.",
+    "subheadline": "Wir helfen mittelständischen Organisationen, repetitive Arbeit zu eliminieren und Abläufe von reaktivem Chaos zu strategischer Effizienz mit KI-gestützter Automatisierung zu transformieren.",
+    "scheduleAudit": "Kostenloses Audit buchen",
+    "seeHowItWorks": "So funktioniert's",
+    "noCreditCard": "Keine Kreditkarte erforderlich",
+    "quickSetup": "15-Min. Einrichtung"
+  },
+  "verticals": {
+    "headline": "Automatisierungslösungen für Ihre Branche",
+    "subheadline": "Wir spezialisieren uns auf KI-Automatisierung für drei Schlüsselsektoren mit operativem Chaos",
+    "accounting": {
+      "title": "Buchhaltungsfirmen",
+      "description": "Verwandlung von Steuervorbereitung zu strategischem Beratungspartner",
+      "painPoints": {
+        "1": "66% der Mitarbeiterzeit für manuelle Dateneingabe",
+        "2": "300+ verstreute Prozesshandbücher",
+        "3": "5+ unverbundene Systeme"
+      },
+      "results": {
+        "1": "20-30% Zeit zurückgewonnen",
+        "2": "66% mehr Dokumente verarbeitet",
+        "3": "60% schnellere Abfragelösung"
+      }
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "description": "Skalierung ohne proportionale Personalerhöhung",
+      "painPoints": {
+        "1": "Fragmentierte Systeme (Inventar, CRM, Logistik)",
+        "2": "20-30 Stunden/Woche für repetitive Aufgaben",
+        "3": "Kundenservice-Engpässe"
+      },
+      "results": {
+        "1": "20-30 Stunden/Woche gespart",
+        "2": "60-70% schnellere Kundenantworten",
+        "3": "300-500% ROI im ersten Jahr"
+      }
+    },
+    "education": {
+      "title": "Bildungseinrichtungen",
+      "description": "Verwaltungsaufwand reduzieren bei verbesserter Studierendenerfahrung",
+      "painPoints": {
+        "1": "3+ Stunden pro Studierendenregistrierung",
+        "2": "24% des Budgets für Verwaltungskosten",
+        "3": "Fragmentierte Legacy-Systeme"
+      },
+      "results": {
+        "1": "88% Reduzierung der Registrierungszeit",
+        "2": "30-50% niedrigere Verwaltungskosten",
+        "3": "40%+ Zufriedenheitssteigerung"
+      }
+    },
+    "learnMore": "Mehr erfahren",
+    "talkToExpert": "Mit Experten sprechen",
+    "painPoints": "Schmerzpunkte:",
+    "results": "Ergebnisse:"
+  },
+  "chatbot": {
+    "header": "Chat mit Max",
+    "placeholder": "Schreiben Sie hier Ihre Nachricht...",
+    "send": "Senden",
+    "sending": "Wird gesendet",
+    "thinking": "Max denkt nach...",
+    "securityNote": "Ihre Informationen sind sicher und werden nur zur Bereitstellung von Automatisierungslösungen verwendet"
+  },
+  "solutions": {
+    "headline": "Unsere Kernlösungen",
+    "subheadline": "Fortgeschrittene KI-Automatisierung für Ihre operativen Herausforderungen",
+    "ipa": {
+      "title": "Intelligente Prozessautomatisierung",
+      "description": "Agentenbasierte KI-Workflows für komplexe, mehrstufige Aufgaben",
+      "feature1": "Dokumentenverarbeitung mit OCR",
+      "feature2": "Automatisierte Dateneingabe",
+      "feature3": "System-zu-System-Integration"
+    },
+    "ai": {
+      "title": "KI-Wissenssysteme",
+      "description": "RAG-basierte Plattformen, die 300+ Prozesshandbücher für sofortige Abfragelösung aufnehmen",
+      "feature1": "Sekunden statt 30-60 Minuten Suchzeit",
+      "feature2": "Institutionelles Wissen bewahren",
+      "feature3": "Stets aktuelle Dokumentation"
+    },
+    "unified": {
+      "title": "Vereinheitlichte Digitale Arbeitsräume",
+      "description": "Canvas-ähnliche Plattformen, die Office 365, SharePoint und kundenspezifische Systeme integrieren",
+      "feature1": "Universelle Suche über alle Systeme",
+      "feature2": "Kontextwechsel eliminieren",
+      "feature3": "Nahtlose Integration"
+    },
+    "customer": {
+      "title": "Kundenservice-Automatisierung",
+      "description": "Mehrsprachige KI-Agenten verarbeiten 60-85% der Anfragen automatisch",
+      "feature1": "Self-Service-Portale",
+      "feature2": "Automatisierte Nachverfolgung",
+      "feature3": "Mehrsprachige Unterstützung"
+    },
+    "featureVisualization": "Feature-Visualisierung"
+  },
+  "trust": {
+    "headline": "Bewiesene Ergebnisse Branchenübergreifend",
+    "subheadline": "Messbare Auswirkungen für Organisationen, die sich für Automatisierung entschieden haben",
+    "hoursSaved": "Gesparte Stunden pro Woche",
+    "productivityGain": "Produktivitätsgewinn",
+    "queriesAutomated": "Automatisierte Anfragen",
+    "roi": "ROI im ersten Jahr",
+    "trustedBy": "Vertrauen von"
+  },
+  "cta": {
+    "headline": "Bereit, Ihre Zeit zurückzugewinnen?",
+    "subheadline": "Buchen Sie heute Ihr kostenloses Automatisierungs-Audit. In 45 Minuten identifizieren wir Ihre größten Chancen und zeigen Ihnen den ROI intelligenter Automatisierung.",
+    "scheduleAudit": "Kostenloses Audit buchen",
+    "downloadPlaybook": "Automatisierungs-Playbook herunterladen",
+    "noObligation": "Keine Verpflichtung",
+    "duration": "45-Minuten-Gespräch",
+    "customROI": "Individuelle ROI-Schätzung",
+    "guarantee": "Risikoumkehr-Garantie:",
+    "guaranteeText": "Wenn wir nicht mindestens 15% Effizienzsteigerung identifizieren können, ist das Audit kostenlos."
+  },
+  "footer": {
+    "tagline": "Das Langweilige automatisieren, damit Sie das Unternehmen Ihrer Träume aufbauen können.",
+    "company": "Unternehmen",
+    "aboutUs": "Über uns",
+    "team": "Team",
+    "careers": "Karriere",
+    "contact": "Kontakt",
+    "industries": "Branchen",
+    "resources": "Ressourcen",
+    "blog": "Blog",
+    "caseStudies": "Fallstudien",
+    "documentation": "Dokumentation",
+    "roiCalculator": "ROI-Rechner",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfService": "Nutzungsbedingungen",
+    "cookiePolicy": "Cookie-Richtlinie",
+    "copyright": "© 2025 AR Automation. Alle Rechte vorbehalten."
+  }
+}
