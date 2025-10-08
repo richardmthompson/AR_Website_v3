@@ -55,13 +55,13 @@ export default function InlineChatbot() {
     <section className="py-20 lg:py-24 bg-gradient-to-br from-accent-cream/20 to-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-card border border-card-border rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-primary/5 p-4 border-b border-card-border">
+          <div className="bg-primary p-4 border-b border-primary-dark">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
-                <div className="font-semibold text-foreground">{t('chatbot.header')}</div>
+                <div className="font-semibold text-primary-foreground">{t('chatbot.header')}</div>
               </div>
             </div>
           </div>

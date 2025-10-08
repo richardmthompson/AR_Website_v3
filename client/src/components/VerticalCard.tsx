@@ -29,8 +29,8 @@ export default function VerticalCard({
   const { t } = useTranslation();
 
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1">
-      <div className="p-6">
+    <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1 h-full flex flex-col">
+      <div className="p-6 flex-1 flex flex-col">
         <div className={`w-16 h-16 rounded-full ${accentColor} bg-opacity-10 flex items-center justify-center mb-4`}>
           <div className={`${accentColor.replace('bg-', 'text-')}`}>
             {icon}
@@ -58,7 +58,7 @@ export default function VerticalCard({
           </ul>
         </div>
 
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-6 flex-1">
           <h4 className="font-semibold text-sm text-foreground">{t('verticals.results')}</h4>
           <ul className="space-y-2">
             {results.map((result, index) => (
@@ -70,7 +70,7 @@ export default function VerticalCard({
           </ul>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mt-auto">
           <Button
             variant="outline"
             className="w-full group/btn"

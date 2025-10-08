@@ -16,7 +16,7 @@
     "scheduleAudit": "Kostenloses Audit buchen",
     "seeHowItWorks": "So funktioniert's",
     "noCreditCard": "Keine Kreditkarte erforderlich",
-    "quickSetup": "15-Min. Einrichtung"
+    "quickSetup": "Sofortige Expertenberatung"
   },
   "verticals": {
     "headline": "Automatisierungslösungen für Ihre Branche",
@@ -65,7 +65,7 @@
     },
     "learnMore": "Mehr erfahren",
     "talkToExpert": "Mit Experten sprechen",
-    "painPoints": "Schmerzpunkte:",
+    "painPoints": "Schmerz:",
     "results": "Ergebnisse:"
   },
   "chatbot": {
