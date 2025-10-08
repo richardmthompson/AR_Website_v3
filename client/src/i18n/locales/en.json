@@ -70,10 +70,12 @@
   },
   "chatbot": {
     "header": "Chat to Max",
+    "greeting": "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?",
     "placeholder": "Type your message here...",
     "send": "Send",
     "sending": "Sending",
     "thinking": "Max is thinking...",
+    "error": "I'm having trouble connecting right now. Please try again in a moment.",
     "securityNote": "Your information is secure and will only be used to provide you with automation solutions"
   },
   "solutions": {

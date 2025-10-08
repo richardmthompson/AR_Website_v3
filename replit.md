@@ -18,14 +18,22 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 ## Features Implemented
 
 ### Homepage Sections
-1. **Navigation** - Sticky header with industry dropdown, language switcher (EN/DE placeholder), Get in Touch CTA
+1. **Navigation** - Sticky header with industry dropdown, functional language switcher (EN/DE), Get in Touch CTA
 2. **Hero Section** - Main headline, value proposition, CTAs for audit scheduling
 3. **Verticals Section** - Three industry-specific cards (Accounting, E-commerce, Education) with pain points and results
-4. **Inline Chatbot (Max)** - ChatGPT-style conversational interface for lead qualification
+4. **Inline Chatbot (Max)** - ChatGPT-style conversational interface for lead qualification with multilingual support
 5. **Solutions Section** - Core automation offerings with feature highlights
 6. **Trust Indicators** - Statistics, ROI metrics, trusted companies
 7. **CTA Section** - Final conversion with audit scheduling and playbook download
 8. **Footer** - Company info, links, social media
+
+### Internationalization (i18n)
+- **Libraries**: react-i18next, i18next
+- **Supported Languages**: English (EN), German (DE)
+- **Translation Files**: client/src/i18n/locales/en.json, client/src/i18n/locales/de.json
+- **Language Persistence**: localStorage stores user language preference
+- **Chatbot Multilingual**: Max responds in selected language with language-specific system prompts
+- **Coverage**: All UI text, navigation, chatbot interface, and chatbot responses fully translated
 
 ### AI Chatbot (Max)
 - **Position**: Inline between Verticals and Solutions sections
@@ -69,7 +77,14 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 - `OPENAI_API_KEY` - OpenAI API key for chatbot
 - `SESSION_SECRET` - Express session secret
 
-## Recent Changes
+## Recent Changes (Latest First)
+- **2025-10-08**: Implemented full internationalization with English and German support
+  - Installed react-i18next and i18next
+  - Created translation files for EN/DE
+  - Updated all components to use i18n translation keys
+  - Implemented functional language switcher with localStorage persistence
+  - Added multilingual chatbot support with German system prompts
+  - Chatbot (Max) greeting and responses adapt to selected language
 - Switched from in-memory storage to PostgreSQL database
 - Implemented OpenAI integration for intelligent chatbot responses
 - Added lead qualification logic with data extraction

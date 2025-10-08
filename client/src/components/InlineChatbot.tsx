@@ -16,12 +16,8 @@ export default function InlineChatbot() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const greeting = i18n.language === 'de' 
-      ? "Hi, ich bin Max. Welche Aufgabe würden Sie gerne automatisch, schnell und ohne Aufwand erledigen lassen?"
-      : "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?";
-    
-    setMessages([{ role: 'assistant', content: greeting }]);
-  }, [i18n.language]);
+    setMessages([{ role: 'assistant', content: t('chatbot.greeting') }]);
+  }, [i18n.language, t]);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -48,7 +44,7 @@ export default function InlineChatbot() {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: "I'm having trouble connecting right now. Please try again in a moment." 
+        content: t('chatbot.error') 
       }]);
     } finally {
       setIsLoading(false);
