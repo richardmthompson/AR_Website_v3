@@ -1,25 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Send, Sparkles } from 'lucide-react';
+import { Send, Sparkles, Loader2 } from 'lucide-react';
+import { apiRequest } from '@/lib/queryClient';
+
+function generateSessionId() {
+  return `session_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+}
 
 export default function InlineChatbot() {
-  const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
-    { role: 'bot', content: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?" },
+  const [sessionId] = useState(() => generateSessionId());
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
+    { role: 'assistant', content: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?" },
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
-    setMessages([...messages, { role: 'user', content: input }]);
+    const userMessage = input;
+    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setInput('');
+    setIsLoading(true);
 
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { role: 'bot', content: "Thanks for sharing! Let me help you find the right automation solution. Which industry best describes your business?" },
-      ]);
-    }, 1000);
+    try {
+      const response = await apiRequest('POST', '/api/chat', { 
+        sessionId, 
+        message: userMessage 
+      });
+
+      const data = await response.json();
+      
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: data.message.content 
+      }]);
+    } catch (error) {
+      console.error('Chat error:', error);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: "I'm having trouble connecting right now. Please try again in a moment." 
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -55,6 +79,14 @@ export default function InlineChatbot() {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="bg-accent text-accent-foreground p-4 rounded-lg flex items-center gap-2">
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Max is thinking...</span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="p-4 border-t border-card-border bg-background">
@@ -63,19 +95,30 @@ export default function InlineChatbot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
                 placeholder="Type your message here..."
                 className="flex-1 px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground placeholder:text-muted-foreground"
                 data-testid="input-inline-chatbot-message"
+                disabled={isLoading}
               />
               <Button 
                 onClick={handleSend} 
                 size="lg"
                 className="px-6"
                 data-testid="button-send-inline-message"
+                disabled={isLoading || !input.trim()}
               >
-                <Send className="w-4 h-4 mr-2" />
-                Send
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Sending
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 mr-2" />
+                    Send
+                  </>
+                )}
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-3 text-center">
