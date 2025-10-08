@@ -36,9 +36,12 @@ export default function InlineChatbot() {
 
       const data = await response.json();
       
+      // Handle FastAPI response format (data.response) and legacy format (data.message.content)
+      const assistantContent = data.response || data.message?.content || t('chatbot.error');
+      
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: data.message.content 
+        content: assistantContent 
       }]);
     } catch (error) {
       console.error('Chat error:', error);

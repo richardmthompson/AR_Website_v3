@@ -2,10 +2,27 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { setupFastAPIProxy } from "./proxy";
+import { spawn } from "child_process";
+import path from "path";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Start FastAPI server in background
+const pythonBackendDir = path.resolve(import.meta.dirname, "..", "python_backend");
+const fastapiProcess = spawn("python3", ["-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"], {
+  cwd: pythonBackendDir,
+  stdio: "inherit",
+});
+
+fastapiProcess.on("error", (err) => {
+  log("FastAPI server error: " + err.message);
+});
+
+process.on("exit", () => {
+  fastapiProcess.kill();
+});
 
 app.use((req, res, next) => {
   const start = Date.now();

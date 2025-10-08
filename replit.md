@@ -5,9 +5,11 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 
 ## Tech Stack
 - **Frontend**: React with TypeScript, Vite, Tailwind CSS, shadcn/ui
-- **Backend**: Express.js with TypeScript
-- **Database**: PostgreSQL (Neon)
-- **AI**: OpenAI GPT-4o-mini for chatbot responses
+- **Backend**: 
+  - FastAPI (Python) with LangChain/LangGraph for AI chatbot
+  - Express.js (TypeScript) as frontend server and API proxy
+- **Database**: PostgreSQL (Neon) with SQLAlchemy ORM
+- **AI**: OpenAI GPT-4o-mini via LangGraph for stateful conversations
 - **Styling**: DeepMind-inspired aesthetic with AR Automation brand colors
 
 ## Brand Colors
@@ -38,8 +40,10 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 ### AI Chatbot (Max)
 - **Position**: Inline between Verticals and Solutions sections
 - **Purpose**: Qualify leads by gathering automation needs and contact information
-- **Backend**: OpenAI integration with lead qualification flow
-- **Database**: Stores conversations, messages, and qualified leads
+- **Backend**: FastAPI with LangGraph for stateful conversation management
+- **AI Engine**: OpenAI GPT-4o-mini with custom lead qualification prompts
+- **State Management**: LangGraph StateGraph for multi-turn conversations
+- **Database**: SQLAlchemy ORM stores conversations, messages, and qualified leads
 
 ## Database Schema
 
@@ -57,10 +61,17 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 - status, createdAt
 - Stores qualified lead information
 
-## API Endpoints
+## API Architecture
+- **Express Server** (Port 5000): Frontend server and API proxy
+- **FastAPI Server** (Port 8000): AI chatbot backend with LangGraph
+- **Proxy Layer**: Express proxies `/api/*` requests to FastAPI
+
+### API Endpoints (FastAPI)
 - `POST /api/conversations` - Create new conversation
 - `GET /api/conversations/:sessionId` - Get conversation with messages
-- `POST /api/chat` - Send message and get AI response
+- `POST /api/chat` - Send message and get AI response (LangGraph)
+  - Request: `{sessionId, message, language}`
+  - Response: `{response, sessionId, conversationId}`
 - `POST /api/leads` - Create lead
 
 ## Lead Qualification Flow
@@ -78,6 +89,16 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 - `SESSION_SECRET` - Express session secret
 
 ## Recent Changes (Latest First)
+- **2025-10-08**: Migrated chatbot backend to Python FastAPI with LangGraph
+  - Replaced Node.js/Express chatbot routes with FastAPI (port 8000)
+  - Implemented LangGraph StateGraph for stateful conversation management
+  - Added SQLAlchemy ORM with SSL support for Neon database
+  - Created Express proxy to route /api requests to FastAPI
+  - Fixed camelCase/snake_case conversion with Pydantic models
+  - Updated frontend to handle new FastAPI response format
+  - Configured database connection pooling with SSL for stability
+  - LangGraph agent manages conversation context across messages
+  - System prompts optimized for contextual lead qualification
 - **2025-10-08**: Design improvements and visual enhancements
   - Hero section: Added solid blue background (bg-primary) for contrast with white header
   - Hero bullets: Changed "15-min setup" to "Immediate expert advice" in EN/DE

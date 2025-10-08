@@ -137,9 +137,10 @@ async def chat(chat_request: ChatRequest, db: Session = Depends(get_db)):
         ).order_by(Message.created_at.asc()).all()
         
         # Prepare messages for LangGraph
+        from langchain_core.messages import AIMessage
         messages_for_graph = [
             HumanMessage(content=msg.content) if msg.role == 'user' 
-            else msg.content
+            else AIMessage(content=msg.content)
             for msg in previous_messages
         ]
         
