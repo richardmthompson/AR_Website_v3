@@ -54,7 +54,7 @@ export default function TrustIndicators() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 text-destructive" data-testid={`stat-${index}`}>
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 text-yellow-400" data-testid={`stat-${index}`}>
                 {stat.value}
                 {stat.suffix}
               </div>

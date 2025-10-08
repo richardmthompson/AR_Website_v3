@@ -1,12 +1,16 @@
 import { Brain, Database, Link2, MessageSquare } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import processAutomationImg from '@assets/stock_images/process_automation_w_5977f46d.jpg';
+import aiKnowledgeImg from '@assets/stock_images/artificial_intellige_d6c7e8a4.jpg';
+import unifiedWorkspaceImg from '@assets/stock_images/unified_digital_work_6fae4e6f.jpg';
+import customerServiceImg from '@assets/stock_images/customer_service_aut_5e8fe777.jpg';
 
 export default function SolutionsSection() {
   const { t } = useTranslation();
 
   const solutions = [
     {
-      icon: <Brain className="w-12 h-12 text-primary" />,
+      icon: <Brain className="w-10 h-10 text-primary" />,
       title: t('solutions.ipa.title'),
       description: t('solutions.ipa.description'),
       features: [
@@ -14,9 +18,10 @@ export default function SolutionsSection() {
         t('solutions.ipa.feature2'),
         t('solutions.ipa.feature3'),
       ],
+      image: processAutomationImg,
     },
     {
-      icon: <Database className="w-12 h-12 text-primary" />,
+      icon: <Database className="w-10 h-10 text-primary" />,
       title: t('solutions.ai.title'),
       description: t('solutions.ai.description'),
       features: [
@@ -24,9 +29,10 @@ export default function SolutionsSection() {
         t('solutions.ai.feature2'),
         t('solutions.ai.feature3'),
       ],
+      image: aiKnowledgeImg,
     },
     {
-      icon: <Link2 className="w-12 h-12 text-primary" />,
+      icon: <Link2 className="w-10 h-10 text-primary" />,
       title: t('solutions.unified.title'),
       description: t('solutions.unified.description'),
       features: [
@@ -34,9 +40,10 @@ export default function SolutionsSection() {
         t('solutions.unified.feature2'),
         t('solutions.unified.feature3'),
       ],
+      image: unifiedWorkspaceImg,
     },
     {
-      icon: <MessageSquare className="w-12 h-12 text-primary" />,
+      icon: <MessageSquare className="w-10 h-10 text-primary" />,
       title: t('solutions.customer.title'),
       description: t('solutions.customer.description'),
       features: [
@@ -44,6 +51,7 @@ export default function SolutionsSection() {
         t('solutions.customer.feature2'),
         t('solutions.customer.feature3'),
       ],
+      image: customerServiceImg,
     },
   ];
 
@@ -59,35 +67,36 @@ export default function SolutionsSection() {
           </p>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-16">
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
+              className={`grid lg:grid-cols-2 gap-8 items-center ${
                 index % 2 === 1 ? 'lg:flex-row-reverse' : ''
               }`}
             >
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="mb-6">{solution.icon}</div>
-                <h3 className="text-2xl sm:text-3xl font-semibold text-primary mb-4" data-testid={`text-solution-${index}`}>
+                <div className="mb-4">{solution.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-3" data-testid={`text-solution-${index}`}>
                   {solution.title}
                 </h3>
-                <p className="text-lg text-muted-foreground mb-6">{solution.description}</p>
-                <ul className="space-y-3">
+                <p className="text-base text-muted-foreground mb-4">{solution.description}</p>
+                <ul className="space-y-2">
                   {solution.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3">
+                    <li key={fIndex} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      <span className="text-foreground">{feature}</span>
+                      <span className="text-sm text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-lg p-12 h-64 flex items-center justify-center">
-                  <div className="text-muted-foreground text-center">
-                    <div className="text-6xl mb-4">{solution.icon}</div>
-                    <p className="text-sm">{t('solutions.featureVisualization')}</p>
-                  </div>
+                <div className="rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src={solution.image} 
+                    alt={solution.title}
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
               </div>
             </div>
