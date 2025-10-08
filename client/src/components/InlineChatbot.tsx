@@ -25,19 +25,6 @@ export default function InlineChatbot() {
   return (
     <section className="py-20 lg:py-24 bg-gradient-to-br from-accent-cream/20 to-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-4">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-semibold">AI-Powered Assistant</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-3" data-testid="text-chatbot-headline">
-            Still Not Sure Which Solution Fits?
-          </h2>
-          <p className="text-muted-foreground">
-            Let our AI assistant help you identify the perfect automation strategy for your business
-          </p>
-        </div>
-
         <div className="bg-card border border-card-border rounded-lg shadow-lg overflow-hidden">
           <div className="bg-primary/5 p-4 border-b border-card-border">
             <div className="flex items-center gap-3">
@@ -45,8 +32,7 @@ export default function InlineChatbot() {
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <div className="font-semibold text-foreground">AR Automation Assistant</div>
-                <div className="text-xs text-muted-foreground">Powered by AI</div>
+                <div className="font-semibold text-foreground">Chat to Mr. Friendly</div>
               </div>
             </div>
           </div>
