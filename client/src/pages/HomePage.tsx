@@ -1,11 +1,11 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import VerticalsSection from '@/components/VerticalsSection';
+import InlineChatbot from '@/components/InlineChatbot';
 import SolutionsSection from '@/components/SolutionsSection';
 import TrustIndicators from '@/components/TrustIndicators';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
-import ChatbotWidget from '@/components/ChatbotWidget';
 
 export default function HomePage() {
   return (
@@ -13,11 +13,11 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <VerticalsSection />
+      <InlineChatbot />
       <SolutionsSection />
       <TrustIndicators />
       <CTASection />
       <Footer />
-      <ChatbotWidget />
     </div>
   );
 }
