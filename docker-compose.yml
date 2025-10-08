@@ -25,8 +25,8 @@ services:
   # FastAPI Backend
   backend:
     build:
-      context: .
-      dockerfile: Dockerfile.backend
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: ar_automation_backend
     restart: unless-stopped
     environment:
@@ -41,9 +41,12 @@ services:
       LANGCHAIN_PROJECT: ${LANGCHAIN_PROJECT:-ar-automation}
 
       # Application settings
-      ENVIRONMENT: ${ENVIRONMENT:-production}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      # Mount code for live reload
+      - ./backend/app:/code/app
     depends_on:
       db:
         condition: service_healthy
@@ -56,23 +59,27 @@ services:
     networks:
       - ar_automation_network
 
-  # React Frontend (Nginx)
+  # React Frontend (Vite Dev Server)
   frontend:
     build:
-      context: .
-      dockerfile: Dockerfile.frontend
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: ar_automation_frontend
     restart: unless-stopped
     ports:
-      - "${FRONTEND_PORT:-80}:80"
+      - "${FRONTEND_PORT:-3000}:3000"
+    volumes:
+      # Mount code for live reload
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+      - ./frontend/tailwind.config.ts:/app/tailwind.config.ts
+      - ./frontend/postcss.config.js:/app/postcss.config.js
+      # Don't mount node_modules (use container's version)
+      - /app/node_modules
     depends_on:
       - backend
-    healthcheck:
-      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost/health || exit 1"]
-      interval: 30s
-      timeout: 3s
-      retries: 3
-      start_period: 10s
     networks:
       - ar_automation_network
 
