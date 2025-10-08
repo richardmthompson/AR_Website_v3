@@ -59,6 +59,10 @@ function extractLeadDataFromConversation(messages: Message[]) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Routes are now handled by FastAPI proxy - see server/proxy.ts
+  // All API endpoints have been migrated to Python FastAPI with LangChain/LangGraph
+  
+  /* OLD EXPRESS ROUTES - DEPRECATED
   app.post("/api/conversations", async (req, res) => {
     try {
       const data = insertConversationSchema.parse(req.body);
@@ -170,6 +174,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(400).json({ error: error.message });
     }
   });
+  */
 
   const httpServer = createServer(app);
 
