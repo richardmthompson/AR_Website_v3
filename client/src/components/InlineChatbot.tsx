@@ -4,7 +4,7 @@ import { Send, Sparkles } from 'lucide-react';
 
 export default function InlineChatbot() {
   const [messages, setMessages] = useState<{ role: 'bot' | 'user'; content: string }[]>([
-    { role: 'bot', content: 'What is your biggest problem with regards to automation?' },
+    { role: 'bot', content: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?" },
   ]);
   const [input, setInput] = useState('');
 
@@ -32,7 +32,7 @@ export default function InlineChatbot() {
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <div className="font-semibold text-foreground">Chat to Mr. Friendly</div>
+                <div className="font-semibold text-foreground">Chat to Max</div>
               </div>
             </div>
           </div>
