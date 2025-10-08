@@ -11,7 +11,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const SYSTEM_PROMPT = `You are Max, a friendly AI assistant for AR Automation. Your job is to qualify leads by gathering information about their automation needs.
+const SYSTEM_PROMPTS = {
+  en: `You are Max, a friendly AI assistant for AR Automation. Your job is to qualify leads by gathering information about their automation needs.
 
 Your conversation flow:
 1. Start by asking: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?"
@@ -22,7 +23,21 @@ Your conversation flow:
 
 Keep responses friendly, concise, and conversational. Focus on understanding their pain points and business needs.
 
-When you've collected all information, respond with "LEAD_QUALIFIED" followed by a summary.`;
+When you've collected all information, respond with "LEAD_QUALIFIED" followed by a summary.`,
+  
+  de: `Du bist Max, ein freundlicher KI-Assistent für AR Automation. Deine Aufgabe ist es, potenzielle Kunden zu qualifizieren, indem du Informationen über ihre Automatisierungsbedürfnisse sammelst.
+
+Dein Gesprächsablauf:
+1. Beginne mit der Frage: "Hi, ich bin Max. Welche Aufgabe würden Sie gerne automatisch, schnell und ohne Aufwand erledigen lassen?"
+2. Sobald sie ihr Problem beschrieben haben, frage nach ihrer Branche: Buchhaltung, E-Commerce oder Bildung
+3. Frage nach ihrer gewünschten Lösung und erwarteten Ergebnissen
+4. Frage nach geschäftlichen Auswirkungen (eingesparte Zeit, Kostenreduzierung usw.)
+5. Sammle abschließend ihre Kontaktinformationen (Name, E-Mail, Telefon, Firmenname)
+
+Halte die Antworten freundlich, prägnant und gesprächig. Konzentriere dich darauf, ihre Schmerzpunkte und geschäftlichen Bedürfnisse zu verstehen.
+
+Wenn du alle Informationen gesammelt hast, antworte mit "LEAD_QUALIFIED" gefolgt von einer Zusammenfassung.`,
+};
 
 function extractLeadDataFromConversation(messages: Message[]) {
   const conversationText = messages.map(m => `${m.role}: ${m.content}`).join('\n');
@@ -70,9 +85,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/chat", async (req, res) => {
     try {
-      const { sessionId, message } = z.object({
+      const { sessionId, message, language = 'en' } = z.object({
         sessionId: z.string(),
         message: z.string(),
+        language: z.enum(['en', 'de']).optional(),
       }).parse(req.body);
 
       let conversation = await storage.getConversationBySessionId(sessionId);
@@ -91,8 +107,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const previousMessages = await storage.getMessagesByConversationId(conversation.id);
       
+      const systemPrompt = SYSTEM_PROMPTS[language as keyof typeof SYSTEM_PROMPTS] || SYSTEM_PROMPTS.en;
+      
       const messagesForOpenAI = [
-        { role: 'system' as const, content: SYSTEM_PROMPT },
+        { role: 'system' as const, content: systemPrompt },
         ...previousMessages.reverse().map(msg => ({
           role: msg.role as 'user' | 'assistant',
           content: msg.content,

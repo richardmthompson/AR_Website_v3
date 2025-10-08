@@ -9,13 +9,19 @@ function generateSessionId() {
 }
 
 export default function InlineChatbot() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [sessionId] = useState(() => generateSessionId());
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
-    { role: 'assistant', content: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?" },
-  ]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const greeting = i18n.language === 'de' 
+      ? "Hi, ich bin Max. Welche Aufgabe würden Sie gerne automatisch, schnell und ohne Aufwand erledigen lassen?"
+      : "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?";
+    
+    setMessages([{ role: 'assistant', content: greeting }]);
+  }, [i18n.language]);
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -28,7 +34,8 @@ export default function InlineChatbot() {
     try {
       const response = await apiRequest('POST', '/api/chat', { 
         sessionId, 
-        message: userMessage 
+        message: userMessage,
+        language: i18n.language 
       });
 
       const data = await response.json();
