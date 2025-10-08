@@ -78,6 +78,14 @@ Marketing website for AR Automation with an intelligent AI chatbot (Max) for lea
 - `SESSION_SECRET` - Express session secret
 
 ## Recent Changes (Latest First)
+- **2025-10-08**: Design improvements and visual enhancements
+  - Hero section: Added solid blue background (bg-primary) for contrast with white header
+  - Hero bullets: Changed "15-min setup" to "Immediate expert advice" in EN/DE
+  - Vertical cards: Implemented equal height layout using flexbox (h-full flex flex-col)
+  - Pain Points: Simplified label from "Pain Points:" to "Pain:" in both languages
+  - Chatbot header: Changed to dark blue (bg-primary) from light tint
+  - Solutions section: Added 4 stock images for feature visualizations, reduced card sizes
+  - Trust Indicators: Changed statistics color from red to gold/yellow (text-yellow-400)
 - **2025-10-08**: Implemented full internationalization with English and German support
   - Installed react-i18next and i18next
   - Created translation files for EN/DE
