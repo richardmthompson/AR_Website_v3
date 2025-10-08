@@ -96,6 +96,7 @@ export default function SolutionsSection() {
                     src={solution.image} 
                     alt={solution.title}
                     className="w-full h-48 object-cover"
+                    data-testid={`img-solution-${index}`}
                   />
                 </div>
               </div>
