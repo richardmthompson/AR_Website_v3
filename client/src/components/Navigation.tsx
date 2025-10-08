@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Navigation() {
+  const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  };
+
+  const currentLang = i18n.language;
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -24,7 +33,7 @@ export default function Navigation() {
                 onMouseLeave={() => setIndustriesOpen(false)}
                 data-testid="button-industries-dropdown"
               >
-                Industries
+                {t('nav.industries')}
                 <ChevronDown className="w-4 h-4" />
               </button>
               {industriesOpen && (
@@ -34,33 +43,41 @@ export default function Navigation() {
                   onMouseLeave={() => setIndustriesOpen(false)}
                 >
                   <a href="#accounting" className="block px-4 py-2 hover-elevate" data-testid="link-accounting">
-                    Accounting Firms
+                    {t('industries.accounting')}
                   </a>
                   <a href="#ecommerce" className="block px-4 py-2 hover-elevate" data-testid="link-ecommerce">
-                    E-commerce
+                    {t('industries.ecommerce')}
                   </a>
                   <a href="#education" className="block px-4 py-2 hover-elevate" data-testid="link-education">
-                    Educational Institutions
+                    {t('industries.education')}
                   </a>
                 </div>
               )}
             </div>
             <a href="#team" className="hover-elevate px-3 py-2 rounded-md" data-testid="link-team">
-              Team
+              {t('nav.team')}
             </a>
             <a href="#resources" className="hover-elevate px-3 py-2 rounded-md" data-testid="link-resources">
-              Resources
+              {t('nav.resources')}
             </a>
             <div className="flex items-center gap-2">
-              <button className="text-sm text-muted-foreground hover:text-foreground" data-testid="button-lang-en">
+              <button 
+                className={`text-sm ${currentLang === 'en' ? 'text-foreground font-semibold' : 'text-muted-foreground'} hover:text-foreground`}
+                onClick={() => changeLanguage('en')}
+                data-testid="button-lang-en"
+              >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
-              <button className="text-sm text-muted-foreground hover:text-foreground" data-testid="button-lang-de">
+              <button 
+                className={`text-sm ${currentLang === 'de' ? 'text-foreground font-semibold' : 'text-muted-foreground'} hover:text-foreground`}
+                onClick={() => changeLanguage('de')}
+                data-testid="button-lang-de"
+              >
                 DE
               </button>
             </div>
-            <Button data-testid="button-get-in-touch">Get in Touch</Button>
+            <Button data-testid="button-get-in-touch">{t('nav.getInTouch')}</Button>
           </div>
 
           <div className="md:hidden">
@@ -79,31 +96,39 @@ export default function Navigation() {
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               <a href="#accounting" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-accounting">
-                Accounting Firms
+                {t('industries.accounting')}
               </a>
               <a href="#ecommerce" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-ecommerce">
-                E-commerce
+                {t('industries.ecommerce')}
               </a>
               <a href="#education" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-education">
-                Educational Institutions
+                {t('industries.education')}
               </a>
               <a href="#team" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-team">
-                Team
+                {t('nav.team')}
               </a>
               <a href="#resources" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-resources">
-                Resources
+                {t('nav.resources')}
               </a>
               <div className="flex items-center gap-2 px-3">
-                <button className="text-sm text-muted-foreground hover:text-foreground" data-testid="mobile-button-lang-en">
+                <button 
+                  className={`text-sm ${currentLang === 'en' ? 'text-foreground font-semibold' : 'text-muted-foreground'} hover:text-foreground`}
+                  onClick={() => changeLanguage('en')}
+                  data-testid="mobile-button-lang-en"
+                >
                   EN
                 </button>
                 <span className="text-muted-foreground">|</span>
-                <button className="text-sm text-muted-foreground hover:text-foreground" data-testid="mobile-button-lang-de">
+                <button 
+                  className={`text-sm ${currentLang === 'de' ? 'text-foreground font-semibold' : 'text-muted-foreground'} hover:text-foreground`}
+                  onClick={() => changeLanguage('de')}
+                  data-testid="mobile-button-lang-de"
+                >
                   DE
                 </button>
               </div>
               <Button className="w-full" data-testid="mobile-button-get-in-touch">
-                Get in Touch
+                {t('nav.getInTouch')}
               </Button>
             </div>
           </div>

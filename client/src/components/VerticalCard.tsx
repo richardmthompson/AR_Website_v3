@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -25,6 +26,8 @@ export default function VerticalCard({
   onLearnMore,
   onTalkToExpert,
 }: VerticalCardProps) {
+  const { t } = useTranslation();
+
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1">
       <div className="p-6">
@@ -44,7 +47,7 @@ export default function VerticalCard({
         <p className="text-muted-foreground mb-4">{description}</p>
 
         <div className="space-y-3 mb-4">
-          <h4 className="font-semibold text-sm text-foreground">Pain Points:</h4>
+          <h4 className="font-semibold text-sm text-foreground">{t('verticals.painPoints')}</h4>
           <ul className="space-y-2">
             {painPoints.map((point, index) => (
               <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -56,7 +59,7 @@ export default function VerticalCard({
         </div>
 
         <div className="space-y-3 mb-6">
-          <h4 className="font-semibold text-sm text-foreground">Results:</h4>
+          <h4 className="font-semibold text-sm text-foreground">{t('verticals.results')}</h4>
           <ul className="space-y-2">
             {results.map((result, index) => (
               <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -74,7 +77,7 @@ export default function VerticalCard({
             onClick={onLearnMore}
             data-testid={`button-learn-more-${title.toLowerCase().replace(/\s+/g, '-')}`}
           >
-            Learn More
+            {t('verticals.learnMore')}
             <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
           </Button>
           <Button
@@ -82,7 +85,7 @@ export default function VerticalCard({
             onClick={onTalkToExpert}
             data-testid={`button-talk-to-expert-${title.toLowerCase().replace(/\s+/g, '-')}`}
           >
-            Talk to Expert
+            {t('verticals.talkToExpert')}
           </Button>
         </div>
       </div>

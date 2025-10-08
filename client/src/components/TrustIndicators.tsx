@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function TrustIndicators() {
+  const { t } = useTranslation();
   const [counts, setCounts] = useState({ hours: 0, productivity: 0, queries: 0, roi: 0 });
 
   useEffect(() => {
@@ -31,10 +33,10 @@ export default function TrustIndicators() {
   }, []);
 
   const stats = [
-    { value: counts.hours, label: 'Hours Saved Per Week', suffix: '+' },
-    { value: counts.productivity, label: 'Productivity Gain', suffix: '%' },
-    { value: counts.queries, label: 'Queries Automated', suffix: '%' },
-    { value: counts.roi, label: 'ROI in First Year', suffix: '%' },
+    { value: counts.hours, label: t('trust.hoursSaved'), suffix: '+' },
+    { value: counts.productivity, label: t('trust.productivityGain'), suffix: '%' },
+    { value: counts.queries, label: t('trust.queriesAutomated'), suffix: '%' },
+    { value: counts.roi, label: t('trust.roi'), suffix: '%' },
   ];
 
   return (
@@ -42,10 +44,10 @@ export default function TrustIndicators() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" data-testid="text-trust-headline">
-            Proven Results Across Industries
+            {t('trust.headline')}
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-3xl mx-auto">
-            Measurable impact for organizations that chose to automate
+            {t('trust.subheadline')}
           </p>
         </div>
 
@@ -62,7 +64,7 @@ export default function TrustIndicators() {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-12">
-          <h3 className="text-2xl font-semibold text-center mb-8">Trusted By</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8">{t('trust.trustedBy')}</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
             {['Grant Thornton', 'Mengali Accountancy', 'WNS Travel-Tech', 'Microsoft Partner'].map((company, index) => (
               <div key={index} className="text-lg font-semibold" data-testid={`company-${index}`}>

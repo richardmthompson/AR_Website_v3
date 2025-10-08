@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Send, Sparkles, Loader2 } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
@@ -8,6 +9,7 @@ function generateSessionId() {
 }
 
 export default function InlineChatbot() {
+  const { t } = useTranslation();
   const [sessionId] = useState(() => generateSessionId());
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string }[]>([
     { role: 'assistant', content: "Hi, I'm Max. What task would you love to have done automatically, quickly, and with no effort on your part?" },
@@ -56,7 +58,7 @@ export default function InlineChatbot() {
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <div className="font-semibold text-foreground">Chat to Max</div>
+                <div className="font-semibold text-foreground">{t('chatbot.header')}</div>
               </div>
             </div>
           </div>
@@ -83,7 +85,7 @@ export default function InlineChatbot() {
               <div className="flex justify-start">
                 <div className="bg-accent text-accent-foreground p-4 rounded-lg flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Max is thinking...</span>
+                  <span>{t('chatbot.thinking')}</span>
                 </div>
               </div>
             )}
@@ -96,7 +98,7 @@ export default function InlineChatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSend()}
-                placeholder="Type your message here..."
+                placeholder={t('chatbot.placeholder')}
                 className="flex-1 px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground placeholder:text-muted-foreground"
                 data-testid="input-inline-chatbot-message"
                 disabled={isLoading}
@@ -111,18 +113,18 @@ export default function InlineChatbot() {
                 {isLoading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Sending
+                    {t('chatbot.sending')}
                   </>
                 ) : (
                   <>
                     <Send className="w-4 h-4 mr-2" />
-                    Send
+                    {t('chatbot.send')}
                   </>
                 )}
               </Button>
             </div>
             <p className="text-xs text-muted-foreground mt-3 text-center">
-              Your information is secure and will only be used to provide you with automation solutions
+              {t('chatbot.securityNote')}
             </p>
           </div>
         </div>

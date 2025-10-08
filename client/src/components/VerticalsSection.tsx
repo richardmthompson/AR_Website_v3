@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import VerticalCard from './VerticalCard';
 import { Calculator, ShoppingCart, GraduationCap } from 'lucide-react';
 import accountingImage from '@assets/generated_images/Accounting_automation_illustration_a101f360.png';
@@ -5,53 +6,55 @@ import ecommerceImage from '@assets/generated_images/E-commerce_automation_illus
 import educationImage from '@assets/generated_images/Education_automation_illustration_2882b70d.png';
 
 export default function VerticalsSection() {
+  const { t } = useTranslation();
+
   const verticals = [
     {
-      title: 'Accounting Firms',
-      description: 'Transform from tax preparation mill to strategic advisory partner',
+      title: t('verticals.accounting.title'),
+      description: t('verticals.accounting.description'),
       painPoints: [
-        '66% of staff time on manual data entry',
-        '300+ scattered process manuals',
-        '5+ disconnected systems',
+        t('verticals.accounting.painPoints.1'),
+        t('verticals.accounting.painPoints.2'),
+        t('verticals.accounting.painPoints.3'),
       ],
       results: [
-        '20-30% time reclaimed',
-        '66% more documents processed',
-        '60% faster query resolution',
+        t('verticals.accounting.results.1'),
+        t('verticals.accounting.results.2'),
+        t('verticals.accounting.results.3'),
       ],
       icon: <Calculator className="w-8 h-8" />,
       accentColor: 'bg-vertical-accounting',
       image: accountingImage,
     },
     {
-      title: 'E-commerce',
-      description: 'Scale operations without proportional staff increases',
+      title: t('verticals.ecommerce.title'),
+      description: t('verticals.ecommerce.description'),
       painPoints: [
-        'Fragmented systems (inventory, CRM, logistics)',
-        '20-30 hours/week on repetitive tasks',
-        'Customer service bottlenecks',
+        t('verticals.ecommerce.painPoints.1'),
+        t('verticals.ecommerce.painPoints.2'),
+        t('verticals.ecommerce.painPoints.3'),
       ],
       results: [
-        '20-30 hours/week saved',
-        '60-70% faster customer responses',
-        '300-500% ROI in first year',
+        t('verticals.ecommerce.results.1'),
+        t('verticals.ecommerce.results.2'),
+        t('verticals.ecommerce.results.3'),
       ],
       icon: <ShoppingCart className="w-8 h-8" />,
       accentColor: 'bg-vertical-ecommerce',
       image: ecommerceImage,
     },
     {
-      title: 'Educational Institutions',
-      description: 'Reduce admin burden while improving student experience',
+      title: t('verticals.education.title'),
+      description: t('verticals.education.description'),
       painPoints: [
-        '3+ hours per student registration',
-        '24% of budget on admin overhead',
-        'Fragmented legacy systems',
+        t('verticals.education.painPoints.1'),
+        t('verticals.education.painPoints.2'),
+        t('verticals.education.painPoints.3'),
       ],
       results: [
-        '88% reduction in registration time',
-        '30-50% lower admin costs',
-        '40%+ increase in satisfaction',
+        t('verticals.education.results.1'),
+        t('verticals.education.results.2'),
+        t('verticals.education.results.3'),
       ],
       icon: <GraduationCap className="w-8 h-8" />,
       accentColor: 'bg-vertical-education',
@@ -64,10 +67,10 @@ export default function VerticalsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4" data-testid="text-verticals-headline">
-            Automation Solutions for Your Industry
+            {t('verticals.headline')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            We specialize in AI automation for three key sectors experiencing operational chaos
+            {t('verticals.subheadline')}
           </p>
         </div>
 

@@ -1,31 +1,34 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const footerSections = [
     {
-      title: 'Company',
+      title: t('footer.company'),
       links: [
-        { label: 'About Us', href: '#about' },
-        { label: 'Team', href: '#team' },
-        { label: 'Careers', href: '#careers' },
-        { label: 'Contact', href: '#contact' },
+        { label: t('footer.aboutUs'), href: '#about' },
+        { label: t('footer.team'), href: '#team' },
+        { label: t('footer.careers'), href: '#careers' },
+        { label: t('footer.contact'), href: '#contact' },
       ],
     },
     {
-      title: 'Industries',
+      title: t('footer.industries'),
       links: [
-        { label: 'Accounting Firms', href: '#accounting' },
-        { label: 'E-commerce', href: '#ecommerce' },
-        { label: 'Education', href: '#education' },
+        { label: t('industries.accounting'), href: '#accounting' },
+        { label: t('industries.ecommerce'), href: '#ecommerce' },
+        { label: t('industries.education'), href: '#education' },
       ],
     },
     {
-      title: 'Resources',
+      title: t('footer.resources'),
       links: [
-        { label: 'Blog', href: '#blog' },
-        { label: 'Case Studies', href: '#case-studies' },
-        { label: 'Documentation', href: '#docs' },
-        { label: 'ROI Calculator', href: '#calculator' },
+        { label: t('footer.blog'), href: '#blog' },
+        { label: t('footer.caseStudies'), href: '#case-studies' },
+        { label: t('footer.documentation'), href: '#docs' },
+        { label: t('footer.roiCalculator'), href: '#calculator' },
       ],
     },
   ];
@@ -37,7 +40,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">AR Automation</h3>
             <p className="text-primary-foreground/80 mb-6 max-w-sm">
-              Automating the boring stuff so you can build the business you dreamed of.
+              {t('footer.tagline')}
             </p>
             <div className="flex gap-4">
               <a
@@ -86,17 +89,17 @@ export default function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © 2025 AR Automation. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#privacy" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-privacy">
-              Privacy Policy
+              {t('footer.privacyPolicy')}
             </a>
             <a href="#terms" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-terms">
-              Terms of Service
+              {t('footer.termsOfService')}
             </a>
             <a href="#cookies" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-cookies">
-              Cookie Policy
+              {t('footer.cookiePolicy')}
             </a>
           </div>
         </div>

@@ -1,45 +1,48 @@
 import { Brain, Database, Link2, MessageSquare } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function SolutionsSection() {
+  const { t } = useTranslation();
+
   const solutions = [
     {
       icon: <Brain className="w-12 h-12 text-primary" />,
-      title: 'Intelligent Process Automation',
-      description: 'Agentic AI workflows that handle complex, multi-step tasks autonomously',
+      title: t('solutions.ipa.title'),
+      description: t('solutions.ipa.description'),
       features: [
-        'Document processing with OCR',
-        'Automated data entry',
-        'System-to-system integration',
+        t('solutions.ipa.feature1'),
+        t('solutions.ipa.feature2'),
+        t('solutions.ipa.feature3'),
       ],
     },
     {
       icon: <Database className="w-12 h-12 text-primary" />,
-      title: 'AI Knowledge Systems',
-      description: 'RAG-based platforms that ingest 300+ process manuals for instant query resolution',
+      title: t('solutions.ai.title'),
+      description: t('solutions.ai.description'),
       features: [
-        'Seconds vs. 30-60 minutes search time',
-        'Preserve institutional knowledge',
-        'Always-current documentation',
+        t('solutions.ai.feature1'),
+        t('solutions.ai.feature2'),
+        t('solutions.ai.feature3'),
       ],
     },
     {
       icon: <Link2 className="w-12 h-12 text-primary" />,
-      title: 'Unified Digital Workspaces',
-      description: 'Canvas-style platforms integrating Office 365, SharePoint, and custom systems',
+      title: t('solutions.unified.title'),
+      description: t('solutions.unified.description'),
       features: [
-        'Universal search across all systems',
-        'Eliminate context-switching',
-        'Seamless integration',
+        t('solutions.unified.feature1'),
+        t('solutions.unified.feature2'),
+        t('solutions.unified.feature3'),
       ],
     },
     {
       icon: <MessageSquare className="w-12 h-12 text-primary" />,
-      title: 'Customer Service Automation',
-      description: 'Multilingual AI agents handling 60-85% of queries automatically',
+      title: t('solutions.customer.title'),
+      description: t('solutions.customer.description'),
       features: [
-        'Self-service portals',
-        'Automated follow-ups',
-        'Multi-language support',
+        t('solutions.customer.feature1'),
+        t('solutions.customer.feature2'),
+        t('solutions.customer.feature3'),
       ],
     },
   ];
@@ -49,10 +52,10 @@ export default function SolutionsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4" data-testid="text-solutions-headline">
-            Our Core Solutions
+            {t('solutions.headline')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Advanced AI automation tailored to your operational challenges
+            {t('solutions.subheadline')}
           </p>
         </div>
 
@@ -83,7 +86,7 @@ export default function SolutionsSection() {
                 <div className="bg-gradient-to-br from-primary/10 to-primary-light/10 rounded-lg p-12 h-64 flex items-center justify-center">
                   <div className="text-muted-foreground text-center">
                     <div className="text-6xl mb-4">{solution.icon}</div>
-                    <p className="text-sm">Feature visualization</p>
+                    <p className="text-sm">{t('solutions.featureVisualization')}</p>
                   </div>
                 </div>
               </div>
