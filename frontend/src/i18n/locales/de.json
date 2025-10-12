@@ -148,5 +148,34 @@
     "termsOfService": "Nutzungsbedingungen",
     "cookiePolicy": "Cookie-Richtlinie",
     "copyright": "© 2025 AR Automation. Alle Rechte vorbehalten."
+  },
+  "cookies": {
+    "banner": {
+      "title": "Wir schätzen Ihre Privatsphäre",
+      "message": "Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, den Website-Traffic zu analysieren und Inhalte zu personalisieren. Wählen Sie unten Ihre Präferenzen.",
+      "acceptAll": "Alle akzeptieren",
+      "rejectAll": "Alle ablehnen",
+      "customize": "Einstellungen anpassen",
+      "privacyPolicy": "Datenschutzerklärung"
+    },
+    "settings": {
+      "title": "Cookie-Einstellungen",
+      "description": "Verwalten Sie Ihre Cookie-Einstellungen. Sie können verschiedene Arten von Cookies unten aktivieren oder deaktivieren.",
+      "necessary": {
+        "title": "Notwendige Cookies",
+        "description": "Diese Cookies sind für die Funktion der Website unerlässlich und können nicht deaktiviert werden. Sie werden normalerweise als Reaktion auf Ihre Aktionen gesetzt, wie z.B. das Festlegen Ihrer Datenschutzeinstellungen oder das Ausfüllen von Formularen."
+      },
+      "analytics": {
+        "title": "Analyse-Cookies",
+        "description": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen über besuchte Bereiche, verbrachte Zeit und aufgetretene Probleme liefern."
+      },
+      "marketing": {
+        "title": "Marketing-Cookies",
+        "description": "Diese Cookies werden verwendet, um personalisierte Werbung zu liefern, die für Sie und Ihre Interessen relevant ist. Sie können von uns oder von Drittanbietern gesetzt werden."
+      },
+      "alwaysEnabled": "Immer aktiviert",
+      "savePreferences": "Einstellungen speichern",
+      "acceptSelected": "Ausgewählte akzeptieren"
+    }
   }
 }
