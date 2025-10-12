@@ -60,11 +60,12 @@ We serve three primary verticals experiencing similar operational pain:
 - **Solution:** Unified workspace with AI knowledge systems and automated document processing
 - **Results:** 20-30% time reclaimed, 66% more documents processed, 60% faster query resolution
 
-### 3. Educational Institutions
-- **Size:** 10,000+ students (universities, colleges)
-- **Pain Point:** Administrative overhead consuming 24% of budgets, multilingual student registration taking 3+ hours
-- **Solution:** Multilingual AI agents, automated accreditation workflows, unified knowledge management
-- **Results:** Registration time reduced from 3+ hours to 15 minutes, 40-60% reduction in admin time
+### 3. Educational Institutions (Multiple Segments)
+- **Size Range:** From 1,000+ student institutions to EdTech platforms serving millions
+- **Segments:** Universities/colleges, EdTech companies, international school networks, education publishers, assessment organizations
+- **Pain Point:** Administrative overhead consuming 24% of budgets, fragmented systems, multilingual operations, compliance burden (FERPA, accreditation), EdTech platforms spending 30-40% of engineering on operational workflows
+- **Solution:** Multilingual AI agents (50+ languages), automated accreditation workflows, EdTech operations infrastructure, document processing, multi-campus coordination
+- **Results:** Student registration 88% faster (3+ hours → 15 minutes), accreditation prep 85% faster (months → weeks), EdTech customer onboarding 75% faster (6 weeks → 1 week), admin cost reduction 30-40%
 
 ---
 
@@ -118,6 +119,29 @@ We serve three primary verticals experiencing similar operational pain:
 
 ---
 
+## Business Models & Strategic Partnerships
+
+Beyond traditional direct-to-customer relationships, AR Automation offers multiple engagement models:
+
+### Direct B2B Customer Model
+Traditional implementation partnership where we provide automation infrastructure directly to organizations.
+
+### VC Portfolio Infrastructure Model
+Position as operational infrastructure provider for entire investment portfolios. Improves portfolio company unit economics (30-40% engineering time savings), provides VCs with differentiated value-add service, creates multiple customer relationships per VC partnership.
+
+### Channel Partnership Model
+Partner with organizations serving large networks (e.g., lending platforms serving thousands of businesses). Bundle AR Automation with partner's core offering. Better operations for end customers improve partner's core business outcomes.
+
+### Consulting Implementation Partnership
+Collaborate with strategy consulting firms—they provide strategic recommendations, we handle tactical implementation. Clean separation enables consultants to deliver results without building implementation teams.
+
+### Technology Integration Partnership
+Integrate with complementary products serving adjacent needs. Joint go-to-market for comprehensive solutions (e.g., campus operations + administrative automation = complete university solution).
+
+**Strategic Value:** These models enable rapid scaling beyond direct sales capacity, create network effects, and position AR Automation as infrastructure layer across multiple market segments.
+
+---
+
 ## What Makes Us Different
 
 ### 1. Integration-First Approach
@@ -137,6 +161,12 @@ We stay through implementation, optimization, and scaling—not just hand you a 
 
 ### 6. Proven Methodology
 Our approach is based on real-world successes: Grant Thornton's 11,000-user deployment, 66% productivity gains in accounting firms, and 88% time reduction in student registration.
+
+### 7. Multi-Industry Specialization
+Deep expertise across three verticals: accounting firms, e-commerce operations, and education institutions. Understand sector-specific workflows, compliance requirements (IRS, FERPA, GDPR), and operational challenges. Not generalists—specialists in these three domains.
+
+### 8. Multilingual & International Operations
+Native support for 50+ languages enables international operations, cross-border coordination, and global expansion. Critical for international student services, global e-commerce, and multi-country operations.
 
 ---
 
@@ -159,6 +189,9 @@ Our approach is based on real-world successes: Grant Thornton's 11,000-user depl
 - Local hosting options for sensitive data (FERPA, GDPR)
 - IRS-compliant security standards for financial data
 - Accreditation-ready audit trails and documentation
+
+### Our Unique Technical Approach
+**The Combination That Changes Everything:** We uniquely combine agentic AI (LangGraph + OpenAI for intelligence, decisions, and document understanding) with n8n workflow automation (400+ pre-built system integrations). This pairing delivers intelligent automation that works with your existing infrastructure—impossible to achieve with AI alone (no system integration) or automation tools alone (no intelligence). Pre-built connectors for education systems (SIS, LMS), financial platforms, and e-commerce tools accelerate implementation.
 
 ---
 
@@ -208,10 +241,17 @@ Our approach is based on real-world successes: Grant Thornton's 11,000-user depl
 - Eliminated **5 hours weekly** searching for information
 - Improved compliance and preserved institutional knowledge
 
-### Educational Institution Case (University)
-- Multilingual student registration reduced from **3+ hours to 15 minutes**
-- **88% time reduction** in onboarding international students
-- **40% increase** in student satisfaction scores
+### International Student Registration (University)
+- Multilingual AI agent automated intake for international students
+- **Registration time reduced from 3+ hours to 15 minutes (88% reduction)**
+- **Student satisfaction increased 40%+**
+- Staff redeployed from data entry to student support
+
+### EdTech Platform Scaling (High-Growth Company)
+- Customer onboarding automation for EdTech platform growing 300% YoY
+- **Onboarding time: 6 weeks → 1 week**
+- **Engineering time saved: 30-40%** redirected to product development
+- Enabled 3x-4x growth without proportional headcount increase
 
 ---
 

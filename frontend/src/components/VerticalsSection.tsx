@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 import VerticalCard from './VerticalCard';
 import { Calculator, ShoppingCart, GraduationCap } from 'lucide-react';
 import accountingImage from '@assets/images/Accounting_automation_illustration_a101f360.png';
@@ -7,8 +8,26 @@ import educationImage from '@assets/images/Education_automation_illustration_288
 
 export default function VerticalsSection() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
 
   const verticals = [
+    {
+      title: t('verticals.education.title'),
+      description: t('verticals.education.description'),
+      painPoints: [
+        t('verticals.education.painPoints.1'),
+        t('verticals.education.painPoints.2'),
+        t('verticals.education.painPoints.3'),
+      ],
+      results: [
+        t('verticals.education.results.1'),
+        t('verticals.education.results.2'),
+        t('verticals.education.results.3'),
+      ],
+      icon: <GraduationCap className="w-8 h-8" />,
+      accentColor: 'bg-vertical-education',
+      image: educationImage,
+    },
     {
       title: t('verticals.accounting.title'),
       description: t('verticals.accounting.description'),
@@ -43,23 +62,6 @@ export default function VerticalsSection() {
       accentColor: 'bg-vertical-ecommerce',
       image: ecommerceImage,
     },
-    {
-      title: t('verticals.education.title'),
-      description: t('verticals.education.description'),
-      painPoints: [
-        t('verticals.education.painPoints.1'),
-        t('verticals.education.painPoints.2'),
-        t('verticals.education.painPoints.3'),
-      ],
-      results: [
-        t('verticals.education.results.1'),
-        t('verticals.education.results.2'),
-        t('verticals.education.results.3'),
-      ],
-      icon: <GraduationCap className="w-8 h-8" />,
-      accentColor: 'bg-vertical-education',
-      image: educationImage,
-    },
   ];
 
   return (
@@ -79,7 +81,14 @@ export default function VerticalsSection() {
             <VerticalCard
               key={index}
               {...vertical}
-              onLearnMore={() => console.log(`Learn more: ${vertical.title}`)}
+              onLearnMore={() => {
+                if (index === 0) {
+                  // Education vertical - navigate to EdTech solutions page
+                  setLocation('/solutions/edtech');
+                } else {
+                  console.log(`Learn more: ${vertical.title}`);
+                }
+              }}
               onTalkToExpert={() => console.log(`Talk to expert: ${vertical.title}`)}
             />
           ))}
