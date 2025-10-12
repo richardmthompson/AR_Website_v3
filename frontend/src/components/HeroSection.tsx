@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import heroImage from '@assets/images/AI_automation_network_hero_visual_656dfdf1.png';
 
 export default function HeroSection() {
-  const { t } = useTranslation();
-
+  const { t } = useTranslation()
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-primary">
       <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark -z-10" />

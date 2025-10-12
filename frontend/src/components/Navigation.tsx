@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'wouter';
 
 export default function Navigation() {
   const { t, i18n } = useTranslation();
@@ -18,16 +19,19 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
+        <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-primary" data-testid="logo-arautomation">
-              AR Automation
-            </div>
+            <Link href="/">
+              <a className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity cursor-pointer" data-testid="logo-arautomation">
+                AR Automation
+              </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
             <div className="relative group">
-              <button
+              <a
+                href="/#industries"
                 className="flex items-center gap-1 text-foreground hover-elevate px-3 py-2 rounded-md"
                 onMouseEnter={() => setIndustriesOpen(true)}
                 onMouseLeave={() => setIndustriesOpen(false)}
@@ -35,21 +39,21 @@ export default function Navigation() {
               >
                 {t('nav.industries')}
                 <ChevronDown className="w-4 h-4" />
-              </button>
+              </a>
               {industriesOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-56 bg-popover border border-popover-border rounded-md shadow-lg py-2"
+                  className="absolute top-full left-0 w-56 bg-popover border border-popover-border rounded-md shadow-lg py-2"
                   onMouseEnter={() => setIndustriesOpen(true)}
                   onMouseLeave={() => setIndustriesOpen(false)}
                 >
-                  <a href="#accounting" className="block px-4 py-2 hover-elevate" data-testid="link-accounting">
+                  <Link href="/solutions/edtech" className="block px-4 py-2 hover-elevate" data-testid="link-education">
+                    {t('industries.education')}
+                  </Link>
+                  <a href="/#industries" className="block px-4 py-2 hover-elevate" data-testid="link-accounting">
                     {t('industries.accounting')}
                   </a>
-                  <a href="#ecommerce" className="block px-4 py-2 hover-elevate" data-testid="link-ecommerce">
+                  <a href="/#industries" className="block px-4 py-2 hover-elevate" data-testid="link-ecommerce">
                     {t('industries.ecommerce')}
-                  </a>
-                  <a href="#education" className="block px-4 py-2 hover-elevate" data-testid="link-education">
-                    {t('industries.education')}
                   </a>
                 </div>
               )}
@@ -95,14 +99,14 @@ export default function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              <a href="#accounting" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-accounting">
+              <Link href="/solutions/edtech" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-education">
+                {t('industries.education')}
+              </Link>
+              <a href="/#industries" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-accounting">
                 {t('industries.accounting')}
               </a>
-              <a href="#ecommerce" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-ecommerce">
+              <a href="/#industries" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-ecommerce">
                 {t('industries.ecommerce')}
-              </a>
-              <a href="#education" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-education">
-                {t('industries.education')}
               </a>
               <a href="#team" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-team">
                 {t('nav.team')}

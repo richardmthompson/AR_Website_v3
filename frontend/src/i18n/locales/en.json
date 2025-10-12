@@ -6,9 +6,9 @@
     "getInTouch": "Get in Touch"
   },
   "industries": {
-    "accounting": "Accounting Firms",
+    "accounting": "Accounting",
     "ecommerce": "E-commerce",
-    "education": "Educational Institutions"
+    "education": "Education and EdTech"
   },
   "hero": {
     "headline": "Automate the boring stuff. Build the business you dreamed of.",
@@ -22,7 +22,7 @@
     "headline": "Automation Solutions for Your Industry",
     "subheadline": "We specialize in AI automation for three key sectors experiencing operational chaos",
     "accounting": {
-      "title": "Accounting Firms",
+      "title": "Accounting",
       "description": "Transform from tax preparation mill to strategic advisory partner",
       "painPoints": {
         "1": "66% of staff time on manual data entry",
@@ -50,17 +50,17 @@
       }
     },
     "education": {
-      "title": "Educational Institutions",
-      "description": "Reduce admin burden while improving student experience",
+      "title": "Education and EdTech",
+      "description": "Free your staff from administrative overload—automation that lets educational teams focus on students instead of paperwork",
       "painPoints": {
-        "1": "3+ hours per student registration",
-        "2": "24% of budget on admin overhead",
-        "3": "Fragmented legacy systems"
+        "1": "Application processing (admissions, financial aid, loans) overwhelming staff capacity",
+        "2": "Multi-campus operations lacking standardization and consolidation",
+        "3": "Manual assessment creating staff bottlenecks and reactive workflows"
       },
       "results": {
-        "1": "88% reduction in registration time",
-        "2": "30-50% lower admin costs",
-        "3": "40%+ increase in satisfaction"
+        "1": "Staff freed from repetitive administrative work for educational priorities",
+        "2": "Consistent processes across campuses and countries",
+        "3": "Proactive operations instead of constant firefighting"
       }
     },
     "learnMore": "Learn More",
@@ -89,25 +89,25 @@
       "feature3": "System-to-system integration"
     },
     "ai": {
-      "title": "AI Knowledge Systems",
-      "description": "RAG-based platforms that ingest 300+ process manuals for instant query resolution",
+      "title": "AI Knowledge Systems & Intelligent Document Processing",
+      "description": "Agentic workflows that ingest institutional documentation and process documents for instant query resolution",
       "feature1": "Seconds vs. 30-60 minutes search time",
       "feature2": "Preserve institutional knowledge",
-      "feature3": "Always-current documentation"
+      "feature3": "Conversational interface to extensive document repositories"
     },
     "unified": {
-      "title": "Unified Digital Workspaces",
-      "description": "Canvas-style platforms integrating Office 365, SharePoint, and custom systems",
-      "feature1": "Universal search across all systems",
-      "feature2": "Eliminate context-switching",
-      "feature3": "Seamless integration"
+      "title": "System Integration Intelligence",
+      "description": "Automation workflows that intelligently connect disparate systems without manual intervention",
+      "feature1": "Seamless legacy system integration",
+      "feature2": "Intelligent data synchronization",
+      "feature3": "Eliminate manual data transfer"
     },
     "customer": {
-      "title": "Customer Service Automation",
-      "description": "Multilingual AI agents handling 60-85% of queries automatically",
-      "feature1": "Self-service portals",
-      "feature2": "Automated follow-ups",
-      "feature3": "Multi-language support"
+      "title": "Customer Service & Conversational Operations",
+      "description": "Multilingual agentic workflows for stakeholder onboarding, support, and administrative task automation",
+      "feature1": "Automated stakeholder onboarding",
+      "feature2": "Intelligent support operations",
+      "feature3": "Administrative task automation"
     },
     "featureVisualization": "Feature visualization"
   },
