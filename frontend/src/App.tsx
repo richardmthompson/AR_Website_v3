@@ -11,7 +11,6 @@ import UseCasesPage from "@/pages/UseCasesPage";
 import DemosPage from "@/pages/DemosPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ConferencePage from "@/pages/ConferencePage";
-import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/not-found";
 import "./i18n/config";
 
@@ -26,7 +25,6 @@ function Router() {
       <Route path="/demos" component={DemosPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
-      <Route path="/contact" component={ContactPage} />
       <Route path="/edtechsummit" component={EdTechSummitPage} />
       {/* 404 catch-all */}
       <Route component={NotFound} />
