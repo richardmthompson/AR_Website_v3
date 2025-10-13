@@ -1,543 +1,418 @@
-# CLAUDE-BASIC.md
+# CLAUDE.md - AR Automation Website Development Guide
 
-This file provides streamlined guidance for building the AR Automation Website - a basic marketing website built with Next.js 14 as a static site.
+**AR Automation** is a full-stack marketing website with an AI-powered chatbot (Max) for lead qualification, built for automation consulting with a specialization in EdTech.
+
+## Quick Reference
+
+| Category | Details |
+|----------|---------|
+| **Architecture** | Full-stack monorepo (React + Vite frontend / FastAPI + LangGraph backend) |
+| **Purpose** | Marketing site + AI chatbot lead qualification |
+| **Languages** | English/German (i18next) |
+| **Key Features** | Multi-page site, Solutions architecture, AI chatbot, Industry demos, Resource library |
+| **Database** | PostgreSQL (local dev) / Neon (production) |
+| **Deployment** | Docker Compose (dev), Railway/Render (production) |
 
 ## Core Development Philosophy
 
-### KISS (Keep It Simple, Stupid)
-Simplicity is the goal. Choose straightforward solutions over complex ones. Simple code is easier to understand, maintain, and debug.
+- **KISS (Keep It Simple)**: Choose straightforward solutions over complex ones
+- **YAGNI (You Aren't Gonna Need It)**: Build features only when needed, not "just in case"
+- **Progressive Enhancement**: Start simple, add complexity when requirements demand it
 
-### YAGNI (You Aren't Gonna Need It)
-Build features only when you need them, not when you think you might need them later.
+## Project Structure
 
-### Progressive Enhancement
-Start simple and add complexity only when requirements demand it.
+```
+ar3_website/
+├── frontend/
+│   ├── src/
+│   │   ├── pages/                    # 8 pages (see below)
+│   │   ├── components/
+│   │   │   ├── ui/                   # shadcn/ui components (40+)
+│   │   │   ├── solutions/            # Solutions architecture components
+│   │   │   ├── HeroSection.tsx       # Landing hero
+│   │   │   ├── InlineChatbot.tsx     # AI chatbot widget
+│   │   │   ├── Navigation.tsx        # Header + language/theme
+│   │   │   ├── VerticalsSection.tsx  # Industry cards
+│   │   │   ├── SolutionsSection.tsx  # Services overview
+│   │   │   ├── TrustIndicators.tsx   # Social proof
+│   │   │   ├── CTASection.tsx        # Calls to action
+│   │   │   └── Footer.tsx            # Site footer
+│   │   ├── hooks/                    # use-mobile, use-toast
+│   │   ├── lib/                      # Utilities (queryClient, utils)
+│   │   └── i18n/                     # i18next config + locales
+│   └── package.json                  # Dependencies reference
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py                   # FastAPI app + routes
+│   │   ├── langgraph_agent.py        # AI conversation agent
+│   │   ├── database.py               # PostgreSQL connection
+│   │   └── models.py                 # SQLAlchemy models
+│   └── requirements.txt              # Dependencies reference
+│
+├── docs/                             # Technical documentation
+│   ├── max_chatbot.md                # Max chatbot specs
+│   ├── langx-docs.md                 # LangChain/LangGraph quick ref
+│   ├── email-automation-research.md  # Email automation research
+│   ├── langchain/                    # LangChain docs
+│   └── langgraph/                    # LangGraph docs
+│
+├── .claude/                          # Context engineering framework (see below)
+│   ├── PRPs/                         # Product Requirements Prompts
+│   ├── artifacts/                    # Generated artifacts
+│   ├── commands/                     # Custom slash commands
+│   └── Context-Engineering-Cognitive-Map.md
+│
+├── docker-compose.yml                # Development environment
+├── .env.example                      # Environment template
+├── CLAUDE.md                         # This file
+├── CONTRIBUTING.md                   # Contribution guidelines
+└── README.md                         # User-facing documentation
+```
 
-## 🚀 Getting Started
+## Application Pages
 
-### Initial Setup
+The frontend is a **multi-page application** with the following routes:
+
+| Route | Component | Purpose |
+|-------|-----------|---------|
+| `/` | HomePage.tsx | Landing page with hero, chatbot, verticals, solutions |
+| `/solutions` | SolutionsPage.tsx | Detailed solutions architecture & technical capabilities |
+| `/resources` | ResourcesPage.tsx | Resource library and documentation |
+| `/demos` | DemosPage.tsx | Interactive demos and use case examples |
+| `/edtech-solutions` | EdTechSolutionsPage.tsx | EdTech-specific automation solutions |
+| `/conference` | ConferencePage.tsx | Conference materials and presentations |
+| `/use-cases` | UseCasesPage.tsx | Customer use cases and success stories |
+| `*` | not-found.tsx | 404 page |
+
+## Tech Stack
+
+### Frontend
+- **React 18** + **TypeScript** + **Vite** (NOT Next.js)
+- **Tailwind CSS** for styling
+- **Wouter** for routing (lightweight)
+- **TanStack Query** for data fetching/caching (NO Redux/Zustand)
+- **Radix UI** (shadcn/ui) for accessible components
+- **i18next** for internationalization
+- **react-hook-form** + **zod** for form validation
+- **Framer Motion** for animations
+
+**Key Dependencies**: See `frontend/package.json`
+
+### Backend
+- **FastAPI** web framework
+- **LangChain** + **LangGraph** for AI agent orchestration
+- **OpenAI GPT-4** language model
+- **SQLAlchemy** ORM + **PostgreSQL**
+- **Pydantic** for validation
+- **uvicorn** server
+
+**Key Dependencies**: See `backend/requirements.txt`
+
+### Infrastructure
+- **Docker + Docker Compose** for containerization
+- **PostgreSQL** (local or Neon cloud)
+
+## Architecture Patterns
+
+### Frontend Component Architecture
+
+**Two component types:**
+
+1. **Marketing Components** (mostly static)
+   - HeroSection, VerticalsSection, SolutionsSection, TrustIndicators, CTASection
+   - Content-focused, minimal interactivity
+
+2. **Interactive Components** (backend integration)
+   - InlineChatbot - AI conversation interface (LangGraph)
+   - Navigation - language switching (EN/DE), theme toggle
+   - Solutions components - architecture visualization, technical capabilities
+
+**Key Principles:**
+- Keep components under 200 lines (split if larger)
+- Use proper TypeScript types (avoid `any`)
+- Tailwind CSS utility classes for styling
+- `cn()` helper for conditional classes
+
+### Backend Agent Architecture
+
+The AI chatbot uses **LangGraph** for stateful conversations:
+
+```python
+# See backend/app/langgraph_agent.py for full implementation
+
+# Agent conversation flow:
+# 1. Greeting → Initial welcome
+# 2. Problem Discovery → Understand pain points
+# 3. Industry Identification → Determine sector
+# 4. Solution Recommendation → Suggest automations
+# 5. Lead Qualification → Collect contact info
+```
+
+**Database Models** (see `backend/app/models.py`):
+- `Conversation` - Chat sessions with language preference
+- `Message` - Individual messages (user/assistant)
+- `Lead` - Qualified leads with contact information
+
+## Development Workflow
+
+### Quick Start
+
+For complete setup instructions, see [README.md](./README.md).
+
+**TL;DR:**
 ```bash
-# Create new Next.js project with TypeScript and Tailwind
-npx create-next-app@latest ar-automation-website --typescript --tailwind --app
-
-cd ar-automation-website
-
-# Start development server
-npm run dev
-# Visit http://localhost:3000
+cp .env.example .env          # Configure environment
+# Edit .env: Add OPENAI_API_KEY
+docker-compose up --build     # Start all services
+# → Frontend: http://localhost:3000
+# → Backend: http://localhost:8000/docs
 ```
 
-### Recommended Initial Dependencies
-```bash
-# Only add these when you actually need them:
+Both frontend and backend support hot reload:
+- Frontend: Edit `src/` → browser auto-refreshes
+- Backend: Edit `app/` → server auto-reloads
 
-# For icons (when needed)
-npm install lucide-react
+## Development Guidelines
 
-# For forms with validation (when you add a contact form)
-npm install react-hook-form @hookform/resolvers zod
+### TypeScript Best Practices
 
-# For UI components (add as needed)
-npx shadcn@latest init
-npx shadcn@latest add button
-npx shadcn@latest add card
-```
-
-## 🏗️ Project Structure
-
-```
-ARAutomationWebsite/
-├── app/                  # App Router pages
-│   ├── globals.css      # Global styles
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home page
-│   └── about/           # About page
-│       └── page.tsx
-├── components/          # React components
-│   └── ui/             # shadcn/ui components (when added)
-├── lib/                # Utility functions
-│   └── utils.ts        # Helper functions
-├── public/             # Static assets (images, fonts, etc.)
-└── next.config.js      # Next.js configuration
-```
-
-## 🎯 TypeScript Guidelines
-
-### Keep Types Simple
 ```typescript
-// ✅ Good - Simple and clear
-interface PageProps {
-  title: string;
-  description: string;
-  children?: React.ReactNode;
+// ✅ Use proper types
+interface ChatMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: string;
 }
 
-// ❌ Avoid - Over-engineered for a basic site
-type PageId = string & { __brand: 'PageId' };
-interface PageProps<T extends PageVariant = 'default'> {
-  // ... complex generic types
-}
+// ❌ Avoid 'any'
+const handleMessage = (msg: any) => { ... }  // Bad
+const handleMessage = (msg: ChatMessage) => { ... }  // Good
 ```
 
-### Use Strict TypeScript (Already Configured)
-- Avoid `any` - use `unknown` if you really don't know the type
-- Let TypeScript infer return types for simple functions
-- Add explicit types for component props
+### Data Fetching Pattern
 
-## 🎨 Styling with Tailwind CSS
-
-### Tailwind Best Practices
 ```typescript
-// ✅ Good - Clean, readable Tailwind classes
-export function Hero() {
-  return (
-    <section className="bg-blue-600 py-20 text-white">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold md:text-6xl">
-          Welcome to AR Automation
-        </h1>
-        <p className="mt-4 text-xl">
-          Streamlining your business processes
-        </p>
-      </div>
-    </section>
-  );
-}
+// Use TanStack Query for all API calls
+import { useQuery, useMutation } from '@tanstack/react-query';
 
-// If classes get too long, extract to a variable
-const cardStyles = "rounded-lg border bg-white p-6 shadow-md hover:shadow-lg transition-shadow";
-
-export function Card({ children }: { children: React.ReactNode }) {
-  return <div className={cardStyles}>{children}</div>;
-}
-```
-
-### Responsive Design
-```typescript
-// Use Tailwind's responsive prefixes
-<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-  {/* Mobile: 1 col, Tablet: 2 cols, Desktop: 3 cols */}
-</div>
-```
-
-## 📦 Component Guidelines
-
-### Keep Components Simple
-```typescript
-// ✅ Good - Simple, focused component
-interface ButtonProps {
-  children: React.ReactNode;
-  onClick?: () => void;
-  variant?: 'primary' | 'secondary';
-}
-
-export function Button({ children, onClick, variant = 'primary' }: ButtonProps) {
-  const baseStyles = "px-4 py-2 rounded-md font-medium transition-colors";
-  const variantStyles = variant === 'primary'
-    ? "bg-blue-600 text-white hover:bg-blue-700"
-    : "bg-gray-200 text-gray-900 hover:bg-gray-300";
-
-  return (
-    <button
-      onClick={onClick}
-      className={`${baseStyles} ${variantStyles}`}
-    >
-      {children}
-    </button>
-  );
-}
-```
-
-### Component Size Guidelines
-- Keep components under 200 lines
-- Keep files under 500 lines
-- If a component is getting large, split it into smaller pieces
-
-## 📝 Form Handling (When Needed)
-
-### Simple Forms - Use Native HTML
-```typescript
-// For basic forms without complex validation
-export function NewsletterForm() {
-  return (
-    <form action="/api/newsletter" method="POST">
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        required
-        className="rounded-md border px-4 py-2"
-      />
-      <button type="submit" className="ml-2 rounded-md bg-blue-600 px-4 py-2 text-white">
-        Subscribe
-      </button>
-    </form>
-  );
-}
-```
-
-### Complex Forms - Add React Hook Form + Zod
-```typescript
-// Only when you need validation, error handling, etc.
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-});
-
-type ContactForm = z.infer<typeof contactSchema>;
-
-export function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema),
+function useChatMessages(conversationId: string) {
+  return useQuery({
+    queryKey: ['messages', conversationId],
+    queryFn: async () => {
+      const res = await fetch(`/api/chat/${conversationId}`);
+      if (!res.ok) throw new Error('Failed to fetch');
+      return res.json();
+    },
+    enabled: !!conversationId,
   });
-
-  const onSubmit = (data: ContactForm) => {
-    console.log('Form data:', data);
-    // Handle submission
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <input {...register('name')} placeholder="Name" className="w-full rounded-md border px-4 py-2" />
-        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
-      </div>
-      {/* More fields... */}
-    </form>
-  );
 }
 ```
 
-## 🏗️ Static Site Configuration
+For more patterns, see [TanStack Query docs](https://tanstack.com/query/latest).
 
-### Next.js Configuration
-```javascript
-// next.config.js
-const isProd = process.env.NODE_ENV === 'production';
+### i18n Pattern
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export', // Generate static HTML
-  basePath: isProd ? '/ARAutomationWebsite2' : '', // GitHub repo name
-  assetPrefix: isProd ? '/ARAutomationWebsite2/' : '',
-  images: {
-    unoptimized: true, // Required for static export
-  },
-}
-
-module.exports = nextConfig
-```
-
-### Build and Deploy
-```bash
-# Build static site
-npm run build
-# Output goes to 'out/' directory
-
-# Test the build locally
-npx serve out
-# Visit http://localhost:3000
-```
-
-## 🚀 GitHub Pages Deployment
-
-### Initial Setup
-
-1. **Repository Settings**
-   - Go to your GitHub repository settings
-   - Navigate to Pages section
-   - Set Source to "GitHub Actions"
-
-2. **Required Files**
-   - `.nojekyll` file in `public/` directory (prevents Jekyll processing)
-   - `.github/workflows/deploy.yml` (automated deployment)
-
-### GitHub Actions Workflow
-
-Create `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build with Next.js
-        run: npm run build
-        env:
-          NODE_ENV: production
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-### Local Development vs Production
-
-```bash
-# Local development (no basePath)
-npm run dev
-# Visit http://localhost:3000
-
-# Test production build locally
-NODE_ENV=production npm run build
-npx serve out
-# Visit http://localhost:3000/ARAutomationWebsite2
-
-# Or build without basePath for local testing
-npm run build
-npx serve out
-# Visit http://localhost:3000
-```
-
-### Important GitHub Pages Notes
-
-1. **URLs in Code**: When linking between pages, always use relative paths:
-   ```typescript
-   // ✅ Good - Works locally and on GitHub Pages
-   <Link href="/about">About</Link>
-
-   // ❌ Bad - Won't work on GitHub Pages
-   <Link href="https://yourdomain.com/about">About</Link>
-   ```
-
-2. **Public Assets**: Reference assets from `/public` directory:
-   ```typescript
-   // ✅ Good - Next.js handles basePath automatically
-   <Image src="/logo.png" alt="Logo" />
-
-   // ❌ Bad - Hardcoded basePath
-   <Image src="/ARAutomationWebsite2/logo.png" alt="Logo" />
-   ```
-
-3. **Custom Domain** (Optional): If you want a custom domain instead of `username.github.io/repo`:
-   - Add a `CNAME` file to `public/` directory with your domain
-   - Configure DNS settings with your domain provider
-   - Update `next.config.js` to remove `basePath` when using custom domain
-
-### Deployment Workflow
-
-```bash
-# 1. Make changes locally
-npm run dev
-
-# 2. Test that everything works
-npm run lint
-npm run build
-
-# 3. Commit and push
-git add .
-git commit -m "Your commit message"
-git push origin main
-
-# 4. GitHub Actions automatically deploys to GitHub Pages
-# Visit: https://YOUR_USERNAME.github.io/ARAutomationWebsite2
-```
-
-### Troubleshooting GitHub Pages
-
-**404 on page refresh?**
-- This is normal for client-side routing with GitHub Pages
-- Use Next.js `<Link>` components for navigation
-- Or add a custom 404.tsx page
-
-**Assets not loading?**
-- Ensure `basePath` is set correctly in `next.config.js`
-- Check that `NODE_ENV=production` during build
-- Verify `.nojekyll` file exists in `public/`
-
-**Build fails in GitHub Actions?**
-- Check the Actions tab for error logs
-- Ensure all dependencies are in `package.json`
-- Test build locally first: `npm run build`
-
-## 🧪 Testing (Progressive Approach)
-
-### Start with Manual Testing
-1. Click through your site manually
-2. Test on different screen sizes
-3. Check all links work
-4. Verify forms submit correctly
-
-### Add Automated Tests When Needed
-```bash
-# When you're ready to add tests
-npm install -D jest @testing-library/react @testing-library/jest-dom
-npm install -D @playwright/test
-```
-
-Simple test example:
 ```typescript
-// components/__tests__/Button.test.tsx
-import { render, screen } from '@testing-library/react';
-import { Button } from '../Button';
+// Use i18next for translations
+import { useTranslation } from 'react-i18next';
 
-describe('Button', () => {
-  it('renders children correctly', () => {
-    render(<Button>Click me</Button>);
-    expect(screen.getByText('Click me')).toBeInTheDocument();
-  });
-});
-```
-
-## 💅 Code Quality
-
-### Development Workflow
-```bash
-# Start development
-npm run dev
-
-# Check TypeScript errors
-npm run build
-# or
-npx tsc --noEmit
-
-# Run linter
-npm run lint
-
-# Fix linting issues automatically
-npm run lint -- --fix
-```
-
-### Before Committing
-- [ ] Site works in the browser
-- [ ] No TypeScript errors
-- [ ] No console errors in browser
-- [ ] Responsive design works (check mobile/tablet/desktop)
-- [ ] Links all work
-
-## 🎯 What to Build First
-
-### Recommended Order
-1. **Home page** - Hero section, value proposition, CTA
-2. **About page** - Company info, team, mission
-3. **Services/Features page** - What you offer
-4. **Contact page** - Simple form or contact info
-5. **Navigation** - Header with links to all pages
-6. **Footer** - Copyright, links, social media
-
-### Start Simple
-```typescript
-// app/page.tsx - Simple home page
-export default function Home() {
-  return (
-    <main>
-      <section className="bg-blue-600 py-20 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold">AR Automation</h1>
-          <p className="mt-4 text-xl">Streamlining your business processes</p>
-          <button className="mt-8 rounded-md bg-white px-8 py-3 text-blue-600 font-semibold hover:bg-gray-100">
-            Get Started
-          </button>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center">Our Services</h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-            {/* Service cards */}
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+export function Component() {
+  const { t } = useTranslation();
+  return <h1>{t('key.path')}</h1>;
 }
 ```
 
-## 🚫 What to Avoid
+### FastAPI Pattern
+
+```python
+# Use Pydantic for validation
+from pydantic import BaseModel
+
+class ChatRequest(BaseModel):
+    message: str
+    conversation_id: str | None = None
+    language: str = "en"
+
+@app.post("/api/chat/send")
+async def send_message(request: ChatRequest):
+    # Implementation
+    pass
+```
+
+For more patterns, see [FastAPI docs](https://fastapi.tiangolo.com).
+
+### Git Commit Guidelines
+
+**Commit Message Format:**
+- Use clear, descriptive commit messages
+- Follow conventional commits format: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
+- Keep subject line under 72 characters
+- Add detailed description in commit body for complex changes
+
+**IMPORTANT - Do NOT include:**
+- ❌ "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+- ❌ "Co-Authored-By: Claude <noreply@anthropic.com>"
+- ❌ Any AI attribution or generation notices
+
+## Testing
+
+```bash
+# Frontend type checking
+cd frontend
+npm run check     # TypeScript
+npm run lint      # ESLint
+
+# Backend (when tests implemented)
+cd backend
+pytest
+```
+
+**Manual Testing Checklist:**
+- Chatbot responds correctly
+- Language switching (EN/DE) works
+- Lead qualification completes
+- Responsive on mobile/tablet/desktop
+- Theme toggle functions
+
+## Code Quality Standards
+
+### Pre-commit Checklist
+- [ ] No TypeScript errors (`npm run check`)
+- [ ] No ESLint warnings (`npm run lint`)
+- [ ] Components under 200 lines
+- [ ] Proper types (no `any`)
+- [ ] Responsive design tested
+- [ ] API endpoints properly typed
+
+## What to Avoid
 
 ### Don't Over-Engineer
-- ❌ Don't add state management (Redux, Zustand) - you probably don't need it
-- ❌ Don't add a database - it's a static site
-- ❌ Don't create complex abstractions - keep it simple
-- ❌ Don't worry about 80% test coverage - test what matters
-- ❌ Don't add dependencies "just in case" - add them when needed
+- ❌ Don't add state management (Redux, Zustand) - TanStack Query handles it
+- ❌ Don't create complex abstractions early
+- ❌ Don't add dependencies "just in case"
+- ❌ Don't optimize prematurely
 
 ### Keep It Maintainable
 - ❌ Don't create 1000+ line files
-- ❌ Don't repeat code - extract reusable components
-- ❌ Don't ignore TypeScript errors - fix them
-- ❌ Don't skip responsive design - use Tailwind's responsive classes
+- ❌ Don't repeat code - extract components
+- ❌ Don't ignore TypeScript/Python type errors
+- ❌ Don't skip responsive design
 
-## 📚 When to Level Up
+## Deployment
 
-### Add These When You Need Them
+### Option 1: Full-Stack (Recommended)
+Deploy frontend + backend together:
+- **Platforms**: Railway, Render, DigitalOcean
+- **Frontend**: Build with `npm run build`, serve as static assets
+- **Backend**: Run with `gunicorn -k uvicorn.workers.UvicornWorker app.main:app`
+- **Database**: Use Neon (serverless PostgreSQL)
 
-**Form Validation** → When you have complex forms
-```bash
-npm install react-hook-form @hookform/resolvers zod
+### Option 2: Split Deployment
+- **Frontend**: Vercel, Netlify, Cloudflare Pages
+- **Backend**: Railway, Render, AWS Lambda
+- **Note**: Update frontend API URLs to backend domain
+
+### Option 3: Static Only (Limited)
+For marketing site without chatbot:
+- Deploy to GitHub Pages
+- Replace InlineChatbot with contact form
+- **Limitation**: No AI chatbot functionality
+
+## Additional Documentation
+
+- **Max Chatbot**: `docs/max_chatbot.md` - Complete chatbot specification
+- **LangChain/LangGraph**: `docs/langchain/`, `docs/langgraph/` - Framework documentation
+- **Email Automation**: `docs/email-automation-research.md` - Integration research
+- **Context Engineering**: `.claude/Context-Engineering-Cognitive-Map.md` - Development framework
+- **Contributing**: `CONTRIBUTING.md` - Contribution guidelines
+
+## Context Engineering Framework (`.claude/` Directory)
+
+The `.claude/` directory contains the Context Engineering framework for AI-assisted development.
+
+### Directory Structure
+
+```
+.claude/
+├── PRPs/                              # Product Requirements Prompts
+│   ├── PRPs/                          # NEW PRPs GO HERE (active work)
+│   │   └── completed/                 # Move PRPs here when done
+│   ├── research/                      # TECHNICAL RESEARCH GOES HERE
+│   ├── scripts/                       # Framework automation scripts
+│   └── templates/                     # 7 PRP template types
+│
+├── artifacts/                         # Strategic documents & outputs
+│   ├── create_brand_story/            # Brand stories for verticals
+│   ├── profile-adam/                  # Team profiles
+│   └── profile-richard/
+│
+├── commands/                          # Slash commands (41 total)
+│   ├── prp-commands/                  # PRP workflows (15 commands)
+│   ├── development/                   # Dev workflows (6 commands)
+│   ├── rapid-development/             # Advanced parallel (8 commands)
+│   ├── code-quality/                  # Code review (3 commands)
+│   ├── typescript/                    # TypeScript-specific (4 commands)
+│   ├── git-operations/                # Git automation (3 commands)
+│   └── ar_strategy/                   # Business strategy (2 commands)
+│
+├── Context-Engineering-Cognitive-Map.md   # Complete framework guide
+└── settings.local.json
 ```
 
-**UI Component Library** → When you need consistent, accessible components
-```bash
-npx shadcn@latest init
-```
+### File Placement Rules
 
-**Testing** → When you want to prevent regressions
-```bash
-npm install -D jest @testing-library/react @playwright/test
-```
+**PRPs (Product Requirements Prompts):**
+- New PRPs → `.claude/PRPs/PRPs/`
+- Completed PRPs → `.claude/PRPs/PRPs/completed/`
+- Technical research → `.claude/PRPs/research/`
 
-**Analytics** → When you want to track visitors
-```bash
-npm install @vercel/analytics
-# or Google Analytics
-```
+**Artifacts:**
+- Strategic documents and generated outputs → `.claude/artifacts/`
+- Brand stories → `.claude/artifacts/create_brand_story/`
+- Team profiles → `.claude/artifacts/profile-{name}/`
 
-## 🎓 Learning Resources
+**Commands:**
+- Custom slash commands → `.claude/commands/{category}/`
 
-- **Next.js Docs**: https://nextjs.org/docs
-- **Tailwind CSS Docs**: https://tailwindcss.com/docs
-- **TypeScript Handbook**: https://www.typescriptlang.org/docs/handbook/
-- **shadcn/ui Components**: https://ui.shadcn.com/
+### Key Concepts
+
+**PRPs** = Product Requirements Prompts - Structured specifications that provide AI agents with complete context, implementation strategy, and validation gates for building features.
+
+**Artifacts** = Strategic knowledge documents (brand stories, research, profiles) that inform development but are not code.
+
+**Commands** = Slash commands (like `/prp-story-create`) that orchestrate AI workflows for creating and executing PRPs.
+
+For complete framework documentation, see `.claude/Context-Engineering-Cognitive-Map.md`.
+
+## Learning Resources
+
+- **React**: https://react.dev
+- **Vite**: https://vitejs.dev/guide/
+- **Tailwind CSS**: https://tailwindcss.com/docs
+- **TanStack Query**: https://tanstack.com/query/latest
+- **FastAPI**: https://fastapi.tiangolo.com
+- **LangChain**: https://python.langchain.com
+- **LangGraph**: https://langchain-ai.github.io/langgraph/
+
+## Project Notes
+
+### Marketing vs. Chatbot Balance
+- Marketing sections attract visitors (Hero, Solutions, Verticals, Trust, CTA)
+- Chatbot (Max) qualifies them as leads through conversation
+- Both work together harmoniously on the landing page
+
+### Database Strategy
+- **Development**: Local PostgreSQL via Docker
+- **Production**: Neon serverless PostgreSQL
+- **Migration**: Tables auto-create on first run via SQLAlchemy
+
+### API Design
+- RESTful endpoints for chat operations
+- OpenAPI docs auto-generated at `/docs`
+- WebSocket support could be added for real-time updates
 
 ---
 
-**Remember**: Start simple, get it working, then iterate. Don't try to build the perfect site on day one.
-
-*Last updated: October 2025*
+**Last updated:** October 2025
+**Remember:** Keep it simple, functional, and user-friendly. Build only what's needed now.
