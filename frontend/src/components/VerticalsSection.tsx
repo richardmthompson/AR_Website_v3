@@ -89,7 +89,7 @@ export default function VerticalsSection() {
                   console.log(`Learn more: ${vertical.title}`);
                 }
               }}
-              onTalkToExpert={() => console.log(`Talk to expert: ${vertical.title}`)}
+              onTalkToExpert={() => setLocation('/contact')}
             />
           ))}
         </div>

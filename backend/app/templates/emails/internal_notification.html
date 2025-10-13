@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Lead Notification</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f4;">
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; border-radius: 10px 10px 0 0; text-align: center;">
+        <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">🚀 New Lead Qualified!</h1>
+        <p style="color: rgba(255, 255, 255, 0.9); margin: 10px 0 0 0; font-size: 16px;">Someone is ready to talk automation</p>
+    </div>
+
+    <!-- Content -->
+    <div style="background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <!-- Lead Contact Information -->
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; margin-bottom: 25px;">
+            <h2 style="color: #667eea; margin-top: 0; font-size: 20px;">Contact Information</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555; width: 40%;">Name:</td>
+                    <td style="padding: 8px 0; color: #333;">{{ name }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555;">Email:</td>
+                    <td style="padding: 8px 0;"><a href="mailto:{{ email }}" style="color: #667eea; text-decoration: none;">{{ email }}</a></td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555;">Phone:</td>
+                    <td style="padding: 8px 0; color: #333;">{{ phone }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555;">Company:</td>
+                    <td style="padding: 8px 0; color: #333;">{{ company }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555;">Role:</td>
+                    <td style="padding: 8px 0; color: #333;">{{ role }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px 0; font-weight: bold; color: #555;">Organization Type:</td>
+                    <td style="padding: 8px 0; color: #333;">{{ organization_type }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Operational Challenges -->
+        <div style="background: #fff3cd; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107; margin-bottom: 25px;">
+            <h3 style="color: #333; margin-top: 0; font-size: 18px;">💼 Operational Challenges</h3>
+            <p style="margin: 10px 0 0 0; color: #333; white-space: pre-wrap;">{{ operational_challenges }}</p>
+        </div>
+
+        <!-- Automation Goals -->
+        <div style="background: #d4edda; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745; margin-bottom: 25px;">
+            <h3 style="color: #333; margin-top: 0; font-size: 18px;">🎯 Automation Goals</h3>
+            <p style="margin: 10px 0 0 0; color: #333; white-space: pre-wrap;">{{ automation_goals }}</p>
+        </div>
+
+        {% if additional_context %}
+        <!-- Additional Context -->
+        <div style="background: #d1ecf1; padding: 20px; border-radius: 8px; border-left: 4px solid #17a2b8; margin-bottom: 25px;">
+            <h3 style="color: #333; margin-top: 0; font-size: 18px;">💬 Additional Context</h3>
+            <p style="margin: 10px 0 0 0; color: #333; white-space: pre-wrap;">{{ additional_context }}</p>
+        </div>
+        {% endif %}
+
+        <!-- CTA Button -->
+        <div style="text-align: center; margin: 35px 0 25px 0;">
+            <a href="mailto:{{ email }}" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 14px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                📧 Respond to Lead
+            </a>
+        </div>
+
+        <!-- Metadata -->
+        <div style="border-top: 1px solid #e0e0e0; padding-top: 20px; margin-top: 20px;">
+            <p style="color: #666; font-size: 14px; margin: 5px 0;">
+                <strong>Lead received:</strong> {{ timestamp }}
+            </p>
+            <p style="color: #666; font-size: 14px; margin: 5px 0;">
+                <strong>Next step:</strong> Reach out within 24 hours for best conversion rates
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align: center; padding: 20px 0; color: #999; font-size: 12px;">
+        <p style="margin: 5px 0;">AR Automation | Lead Qualification System</p>
+        <p style="margin: 5px 0;">Powered by Max (AI Assistant)</p>
+    </div>
+</body>
+</html>

@@ -76,7 +76,23 @@
     "sending": "Wird gesendet",
     "thinking": "Max denkt nach...",
     "error": "Ich habe momentan Verbindungsprobleme. Bitte versuchen Sie es gleich noch einmal.",
-    "securityNote": "Ihre Informationen sind sicher und werden nur zur Bereitstellung von Automatisierungslösungen verwendet"
+    "securityNote": "Ihre Informationen sind sicher und werden nur zur Bereitstellung von Automatisierungslösungen verwendet",
+    "conversationClosed": "Gespräch wurde beendet"
+  },
+  "contact": {
+    "pageTitle": "Sprechen wir über Ihren Automatisierungsbedarf",
+    "pageSubtitle": "Chatten Sie mit Max, unserem KI-Assistenten, für eine personalisierte Beratung",
+    "chatbotHeader": "Chat mit Max",
+    "greeting": "Hi, ich bin Max. Lassen Sie uns einige Kontaktdaten von Ihnen sammeln. Können wir mit Ihrem vollständigen Namen beginnen?",
+    "whatToExpectTitle": "Was Sie erwarten können",
+    "responseTime": "Wir antworten normalerweise innerhalb von 24 Stunden",
+    "discussionTopics": [
+      "Tiefgehende Analyse Ihrer spezifischen operativen Herausforderungen",
+      "Diskussion relevanter Automatisierungslösungen",
+      "ROI-Analyse für Ihre Organisation",
+      "Einführung in unseren technischen Ansatz",
+      "Implementierungszeitplan und nächste Schritte"
+    ]
   },
   "solutions": {
     "headline": "Unsere Kernlösungen",

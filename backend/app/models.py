@@ -16,11 +16,13 @@ class ChatRequest(CamelModel):
     session_id: str
     message: str
     language: Optional[str] = 'en'
+    agent_type: Optional[str] = 'marketing'  # 'marketing' or 'contact'
 
 class ChatResponse(CamelModel):
     response: str
     session_id: str
     conversation_id: str
+    metadata: Optional[Dict[str, Any]] = None
 
 class ConversationCreate(CamelModel):
     session_id: str
@@ -54,5 +56,10 @@ class LeadCreate(CamelModel):
     contact_email: Optional[str]
     contact_phone: Optional[str]
     company_name: Optional[str]
+    role: Optional[str]
+    organization_type: Optional[str]
+    operational_challenges: Optional[str]
+    automation_goals: Optional[str]
+    additional_context: Optional[str]
     additional_info: Optional[Dict[str, Any]]
     status: Optional[str] = 'new'

@@ -4,9 +4,11 @@ import Footer from '@/components/Footer';
 import { useTranslation } from 'react-i18next';
 import { Play, Clock, Users, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLocation } from 'wouter';
 
 export default function DemosPage() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,7 +73,7 @@ export default function DemosPage() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Watch real workflows transformed by AI automation
             </p>
-            <Button size="lg" className="text-lg px-8">
+            <Button size="lg" className="text-lg px-8" onClick={() => setLocation('/contact')}>
               Schedule Live Demo
             </Button>
           </div>
@@ -145,7 +147,7 @@ export default function DemosPage() {
             Schedule a personalized demo tailored to your specific use case
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+            <Button size="lg" variant="secondary" className="text-lg px-8" onClick={() => setLocation('/contact')}>
               Schedule Live Demo
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary">

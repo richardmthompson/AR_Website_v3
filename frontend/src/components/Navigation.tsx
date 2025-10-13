@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 export default function Navigation() {
   const { t, i18n } = useTranslation();
+  const [, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
 
@@ -81,7 +82,7 @@ export default function Navigation() {
                 DE
               </button>
             </div>
-            <Button data-testid="button-get-in-touch">{t('nav.getInTouch')}</Button>
+            <Button onClick={() => setLocation('/contact')} data-testid="button-get-in-touch">{t('nav.getInTouch')}</Button>
           </div>
 
           <div className="md:hidden">
@@ -131,7 +132,7 @@ export default function Navigation() {
                   DE
                 </button>
               </div>
-              <Button className="w-full" data-testid="mobile-button-get-in-touch">
+              <Button onClick={() => setLocation('/contact')} className="w-full" data-testid="mobile-button-get-in-touch">
                 {t('nav.getInTouch')}
               </Button>
             </div>

@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 
 export default function CTASection() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
 
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-br from-accent-cream/50 to-background">
@@ -16,7 +18,7 @@ export default function CTASection() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <Button size="lg" className="group" data-testid="button-schedule-audit-cta">
+          <Button onClick={() => setLocation('/contact')} size="lg" className="group" data-testid="button-schedule-audit-cta">
             <Calendar className="mr-2 w-5 h-5" />
             {t('cta.scheduleAudit')}
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
