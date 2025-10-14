@@ -127,7 +127,7 @@ export function useCookieConsent() {
         listeners.splice(index, 1)
       }
     }
-  }, [state])
+  }, [])
 
   return {
     ...state,

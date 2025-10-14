@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useCookieConsent } from '@/hooks/use-cookie-consent'
+import { CookieDetails } from './CookieDetails'
 import { cn } from '@/lib/utils'
 import type { CookiePreferences } from '@/types/cookie-consent'
 
@@ -125,6 +126,11 @@ export function CookieSettings() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Cookie Details */}
+        <div className="border-t pt-4 mt-4">
+          <CookieDetails />
         </div>
 
         {/* Footer Buttons */}

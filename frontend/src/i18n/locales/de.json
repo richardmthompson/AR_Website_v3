@@ -156,7 +156,8 @@
       "acceptAll": "Alle akzeptieren",
       "rejectAll": "Alle ablehnen",
       "customize": "Einstellungen anpassen",
-      "privacyPolicy": "Datenschutzerklärung"
+      "privacyPolicy": "Datenschutzerklärung",
+      "privacyPolicyLink": "Mehr erfahren in unserer Datenschutzerklärung"
     },
     "settings": {
       "title": "Cookie-Einstellungen",
@@ -175,7 +176,136 @@
       },
       "alwaysEnabled": "Immer aktiviert",
       "savePreferences": "Einstellungen speichern",
-      "acceptSelected": "Ausgewählte akzeptieren"
+      "acceptSelected": "Ausgewählte akzeptieren",
+      "withdrawalInfo": "Sie können diese Einstellungen jederzeit über den Cookie-Richtlinien-Link in unserer Fußzeile ändern."
+    },
+    "details": {
+      "title": "Detaillierte Cookie-Informationen",
+      "description": "Vollständige Liste der auf dieser Website verwendeten Cookies",
+      "columns": {
+        "name": "Cookie-Name",
+        "purpose": "Zweck",
+        "duration": "Laufzeit",
+        "provider": "Anbieter"
+      },
+      "necessary": {
+        "cookies": [
+          {
+            "name": "cookie-consent",
+            "purpose": "Speichert Ihre Cookie-Einstellungen",
+            "duration": "12 Monate",
+            "provider": "Erstanbieter (AR Automation)"
+          },
+          {
+            "name": "i18nextLng",
+            "purpose": "Speichert Ihre Sprachpräferenz",
+            "duration": "Sitzung",
+            "provider": "Erstanbieter (AR Automation)"
+          }
+        ]
+      },
+      "analytics": {
+        "cookies": [
+          {
+            "name": "_ga",
+            "purpose": "Unterscheidet eindeutige Nutzer für Analysen",
+            "duration": "2 Jahre",
+            "provider": "Drittanbieter (Google LLC, USA)"
+          },
+          {
+            "name": "_gid",
+            "purpose": "Unterscheidet Nutzer für 24-Stunden-Analysen",
+            "duration": "24 Stunden",
+            "provider": "Drittanbieter (Google LLC, USA)"
+          }
+        ]
+      },
+      "marketing": {
+        "cookies": [
+          {
+            "name": "Beispiel (derzeit nicht verwendet)",
+            "purpose": "Marketing-Tracking-Platzhalter",
+            "duration": "N/A",
+            "provider": "N/A"
+          }
+        ]
+      }
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "Letzte Aktualisierung: Januar 2025",
+    "introduction": {
+      "title": "Einführung",
+      "content": "AR Automation respektiert Ihre Privatsphäre und verpflichtet sich zum Schutz Ihrer personenbezogenen Daten. Diese Datenschutzerklärung erläutert, wie wir Ihre Informationen erfassen, verwenden und schützen, wenn Sie unsere Website besuchen."
+    },
+    "collection": {
+      "title": "Informationen, die wir sammeln",
+      "content": "Wir können folgende Arten von Informationen erfassen:",
+      "items": {
+        "personal": "Persönliche Informationen: Name, E-Mail-Adresse, Telefonnummer und Firmenname, wenn Sie uns kontaktieren oder unsere Dienstleistungen anfordern",
+        "usage": "Nutzungsdaten: Informationen darüber, wie Sie unsere Website nutzen, einschließlich besuchter Seiten, verbrachter Zeit und Navigationsmuster",
+        "technical": "Technische Daten: IP-Adresse, Browsertyp, Geräteinformationen und Cookie-Daten"
+      }
+    },
+    "usage": {
+      "title": "Wie wir Ihre Informationen verwenden",
+      "content": "Wir verwenden Ihre Informationen für folgende Zwecke:",
+      "items": {
+        "service": "Um unsere Dienstleistungen bereitzustellen und zu verbessern",
+        "communication": "Um mit Ihnen über Anfragen, Updates und Marketing zu kommunizieren (mit Ihrer Einwilligung)",
+        "improvement": "Um die Leistung und Benutzererfahrung unserer Website zu analysieren und zu verbessern",
+        "analytics": "Um das Nutzerverhalten durch Analysen zu verstehen (nur mit Ihrer Einwilligung)"
+      }
+    },
+    "cookies": {
+      "title": "Cookies und Tracking-Technologien",
+      "content": "Wir verwenden Cookies und ähnliche Tracking-Technologien, um Ihr Erlebnis zu verbessern. Sie können Ihre Cookie-Einstellungen jederzeit verwalten.",
+      "manageButton": "Cookie-Einstellungen verwalten"
+    },
+    "security": {
+      "title": "Datenspeicherung und Sicherheit",
+      "content": "Wir implementieren angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer personenbezogenen Daten vor unbefugtem Zugriff, Änderung, Offenlegung oder Zerstörung. Ihre Daten werden sicher gespeichert und nur so lange aufbewahrt, wie es zur Erfüllung der in dieser Richtlinie beschriebenen Zwecke erforderlich ist."
+    },
+    "rights": {
+      "title": "Ihre Rechte (DSGVO)",
+      "content": "Gemäß der Datenschutz-Grundverordnung (DSGVO) haben Sie folgende Rechte:",
+      "items": {
+        "access": {
+          "title": "Recht auf Auskunft",
+          "description": "Sie können eine Kopie der über Sie gespeicherten personenbezogenen Daten anfordern"
+        },
+        "rectification": {
+          "title": "Recht auf Berichtigung",
+          "description": "Sie können die Korrektur unrichtiger oder unvollständiger Daten verlangen"
+        },
+        "erasure": {
+          "title": "Recht auf Löschung",
+          "description": "Sie können die Löschung Ihrer personenbezogenen Daten verlangen (\"Recht auf Vergessenwerden\")"
+        },
+        "portability": {
+          "title": "Recht auf Datenübertragbarkeit",
+          "description": "Sie können Ihre Daten in einem strukturierten, gängigen Format anfordern"
+        },
+        "objection": {
+          "title": "Widerspruchsrecht",
+          "description": "Sie können der Verarbeitung Ihrer Daten für bestimmte Zwecke widersprechen"
+        },
+        "restriction": {
+          "title": "Recht auf Einschränkung",
+          "description": "Sie können in bestimmten Fällen die Einschränkung der Verarbeitung verlangen"
+        }
+      }
+    },
+    "contact": {
+      "title": "Kontaktinformationen",
+      "content": "Wenn Sie Fragen zu dieser Datenschutzerklärung haben oder Ihre Rechte ausüben möchten, kontaktieren Sie uns bitte:",
+      "company": "AR Automation",
+      "email": "E-Mail: privacy@arautomation.com"
+    },
+    "changes": {
+      "title": "Änderungen an dieser Richtlinie",
+      "content": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite mit einem aktualisierten Datum \"Letzte Aktualisierung\" veröffentlichen."
     }
   }
 }

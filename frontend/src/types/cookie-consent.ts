@@ -21,3 +21,16 @@ export interface CookieConsentActions {
   closeBanner: () => void
   closeSettings: () => void
 }
+
+export interface CookieDetail {
+  name: string
+  purpose: string
+  duration: string
+  provider: string
+}
+
+export interface CookieDetailsByCategory {
+  necessary: CookieDetail[]
+  analytics: CookieDetail[]
+  marketing: CookieDetail[]
+}

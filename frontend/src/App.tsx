@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CookieConsent } from "@/components/CookieConsent";
+import { useCookieScripts } from "@/hooks/use-cookie-scripts";
 import HomePage from "@/pages/HomePage";
 import EdTechSolutionsPage from "@/pages/EdTechSolutionsPage";
 import SolutionsPage from "@/pages/SolutionsPage";
@@ -11,6 +12,7 @@ import UseCasesPage from "@/pages/UseCasesPage";
 import DemosPage from "@/pages/DemosPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ConferencePage from "@/pages/ConferencePage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
 import NotFound from "@/pages/not-found";
 import "./i18n/config";
 
@@ -25,6 +27,7 @@ function Router() {
       <Route path="/demos" component={DemosPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
+      <Route path="/privacy" component={PrivacyPolicyPage} />
       {/* 404 catch-all */}
       <Route component={NotFound} />
     </Switch>
@@ -32,6 +35,9 @@ function Router() {
 }
 
 function App() {
+  // Initialize cookie script loading based on consent
+  useCookieScripts();
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

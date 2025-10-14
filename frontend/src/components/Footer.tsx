@@ -1,8 +1,10 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useCookieConsent } from '@/hooks/use-cookie-consent';
 
 export default function Footer() {
   const { t } = useTranslation();
+  const { openSettings } = useCookieConsent();
 
   const footerSections = [
     {
@@ -98,9 +100,13 @@ export default function Footer() {
             <a href="#terms" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-terms">
               {t('footer.termsOfService')}
             </a>
-            <a href="#cookies" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-cookies">
+            <button
+              onClick={() => openSettings()}
+              className="text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm bg-transparent border-none cursor-pointer p-0"
+              data-testid="link-cookies"
+            >
               {t('footer.cookiePolicy')}
-            </a>
+            </button>
           </div>
         </div>
       </div>

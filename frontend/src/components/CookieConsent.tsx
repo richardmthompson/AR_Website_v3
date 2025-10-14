@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'wouter'
 import { Button } from '@/components/ui/button'
 import { CookieSettings } from './CookieSettings'
 import { useCookieConsent } from '@/hooks/use-cookie-consent'
@@ -9,15 +10,11 @@ export function CookieConsent() {
   const { t } = useTranslation()
   const { showBanner, acceptAll, rejectAll, openSettings } = useCookieConsent()
 
-  // Don't render if banner shouldn't be shown
-  if (!showBanner) {
-    return null
-  }
-
   return (
     <>
       {/* Cookie Banner */}
-      <div
+      {showBanner && (
+        <div
         className={cn(
           "fixed inset-x-0 bottom-0 z-50",
           "bg-background/95 backdrop-blur-md",
@@ -33,7 +30,10 @@ export function CookieConsent() {
                 {t('cookies.banner.title')}
               </h3>
               <p className="text-sm text-muted-foreground">
-                {t('cookies.banner.message')}
+                {t('cookies.banner.message')}{' '}
+                <Link href="/privacy" className="underline hover:text-foreground">
+                  {t('cookies.banner.privacyPolicyLink')}
+                </Link>
               </p>
             </div>
 
@@ -62,9 +62,10 @@ export function CookieConsent() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
 
-      {/* Cookie Settings Dialog */}
+      {/* Cookie Settings Dialog - Always rendered so it can be opened from footer */}
       <CookieSettings />
     </>
   )
