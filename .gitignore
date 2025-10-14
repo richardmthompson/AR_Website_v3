@@ -51,3 +51,9 @@ coverage/
 # Misc
 *.pem
 .cache/
+
+# Documentation (external sources - not project docs)
+docs/langchain/
+docs/langgraph/
+docs/langx-docs.md
+docs/convert_to_markdown.py
