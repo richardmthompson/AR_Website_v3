@@ -13,6 +13,7 @@ import DemosPage from "@/pages/DemosPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ConferencePage from "@/pages/ConferencePage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
 import NotFound from "@/pages/not-found";
 import "./i18n/config";
 
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
       <Route path="/privacy" component={PrivacyPolicyPage} />
+      <Route path="/cookie-policy" component={CookiePolicyPage} />
       {/* 404 catch-all */}
       <Route component={NotFound} />
     </Switch>

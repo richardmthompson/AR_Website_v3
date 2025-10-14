@@ -147,15 +147,16 @@
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsOfService": "Nutzungsbedingungen",
     "cookiePolicy": "Cookie-Richtlinie",
+    "cookieSettings": "Cookie-Einstellungen",
     "copyright": "© 2025 AR Automation. Alle Rechte vorbehalten."
   },
   "cookies": {
     "banner": {
       "title": "Wir schätzen Ihre Privatsphäre",
       "message": "Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, den Website-Traffic zu analysieren und Inhalte zu personalisieren. Wählen Sie unten Ihre Präferenzen.",
-      "acceptAll": "Alle akzeptieren",
-      "rejectAll": "Alle ablehnen",
-      "customize": "Einstellungen anpassen",
+      "acceptAll": "Alle Cookies akzeptieren",
+      "rejectAll": "Nur technisch erforderlich",
+      "customize": "Konfigurieren",
       "privacyPolicy": "Datenschutzerklärung",
       "privacyPolicyLink": "Mehr erfahren in unserer Datenschutzerklärung"
     },
@@ -176,7 +177,7 @@
       },
       "alwaysEnabled": "Immer aktiviert",
       "savePreferences": "Einstellungen speichern",
-      "acceptSelected": "Ausgewählte akzeptieren",
+      "acceptSelected": "Alle akzeptieren",
       "withdrawalInfo": "Sie können diese Einstellungen jederzeit über den Cookie-Richtlinien-Link in unserer Fußzeile ändern."
     },
     "details": {
@@ -306,6 +307,42 @@
     "changes": {
       "title": "Änderungen an dieser Richtlinie",
       "content": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite mit einem aktualisierten Datum \"Letzte Aktualisierung\" veröffentlichen."
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie-Richtlinie",
+    "lastUpdated": "Letzte Aktualisierung: Januar 2025",
+    "introduction": {
+      "title": "Einführung",
+      "content": "Diese Cookie-Richtlinie erklärt, wie AR Automation Cookies und ähnliche Tracking-Technologien verwendet, wenn Sie unsere Website besuchen. Diese Richtlinie bietet detaillierte Informationen über die Arten von Cookies, die wir verwenden, warum wir sie verwenden und wie Sie sie kontrollieren können."
+    },
+    "whatAreCookies": {
+      "title": "Was sind Cookies?",
+      "content": "Cookies sind kleine Textdateien, die auf Ihrem Gerät (Computer, Tablet oder Mobiltelefon) abgelegt werden, wenn Sie eine Website besuchen. Sie werden häufig verwendet, um Websites effizienter zu machen und Website-Betreibern Informationen zu liefern. Cookies können \"persistent\" oder \"Session\"-Cookies sein. Persistente Cookies bleiben auf Ihrem Gerät, nachdem Sie Ihren Browser geschlossen haben, während Session-Cookies gelöscht werden, wenn Sie Ihren Browser schließen."
+    },
+    "howWeUse": {
+      "title": "Wie wir Cookies verwenden",
+      "content": "Wir verwenden Cookies, um Ihr Browsing-Erlebnis zu verbessern, den Website-Traffic zu analysieren, Inhalte zu personalisieren und zu verstehen, wie unsere Website genutzt wird. Cookies helfen uns, Ihre Präferenzen zu merken, relevante Funktionen bereitzustellen und sicherzustellen, dass die Website ordnungsgemäß funktioniert."
+    },
+    "categories": {
+      "title": "Arten von Cookies, die wir verwenden"
+    },
+    "detailedList": {
+      "title": "Detaillierte Cookie-Informationen",
+      "content": "Nachfolgend finden Sie eine umfassende Liste aller auf unserer Website verwendeten Cookies, einschließlich ihres Zwecks, ihrer Laufzeit und Anbieterinformationen."
+    },
+    "managing": {
+      "title": "Verwaltung Ihrer Cookie-Einstellungen",
+      "content": "Sie können Ihre Cookie-Einstellungen jederzeit verwalten, indem Sie auf die Schaltfläche unten klicken. Dadurch werden unsere Cookie-Einstellungen geöffnet, in denen Sie verschiedene Arten von Cookies aktivieren oder deaktivieren können.",
+      "button": "Cookie-Einstellungen verwalten"
+    },
+    "browserSettings": {
+      "title": "Browser-Cookie-Einstellungen",
+      "content": "Die meisten Webbrowser ermöglichen es Ihnen, Cookies über ihre Einstellungen zu kontrollieren. Sie können Ihren Browser so einstellen, dass er Cookies ablehnt oder bestimmte Cookies löscht. Bitte beachten Sie, dass einige Funktionen unserer Website möglicherweise nicht ordnungsgemäß funktionieren, wenn Sie Cookies deaktivieren. Um mehr darüber zu erfahren, wie Sie Cookies in Ihrem Browser verwalten können, konsultieren Sie bitte die Hilfedokumentation Ihres Browsers."
+    },
+    "contact": {
+      "title": "Fragen zu Cookies?",
+      "content": "Wenn Sie Fragen zu unserer Verwendung von Cookies oder dieser Cookie-Richtlinie haben, kontaktieren Sie uns bitte:"
     }
   }
 }

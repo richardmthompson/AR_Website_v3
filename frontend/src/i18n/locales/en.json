@@ -147,15 +147,16 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
+    "cookieSettings": "Cookie Settings",
     "copyright": "© 2025 AR Automation. All rights reserved."
   },
   "cookies": {
     "banner": {
       "title": "We Value Your Privacy",
       "message": "We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Choose your preferences below.",
-      "acceptAll": "Accept All",
-      "rejectAll": "Reject All",
-      "customize": "Customize Settings",
+      "acceptAll": "Accept all Cookies",
+      "rejectAll": "Only technically required",
+      "customize": "Configure",
       "privacyPolicy": "Privacy Policy",
       "privacyPolicyLink": "Learn more in our Privacy Policy"
     },
@@ -176,7 +177,7 @@
       },
       "alwaysEnabled": "Always Enabled",
       "savePreferences": "Save Preferences",
-      "acceptSelected": "Accept Selected",
+      "acceptSelected": "Accept All",
       "withdrawalInfo": "You can change these preferences at any time via the Cookie Policy link in our footer."
     },
     "details": {
@@ -306,6 +307,42 @@
     "changes": {
       "title": "Changes to This Policy",
       "content": "We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on this page with an updated \"Last Updated\" date."
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: January 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains how AR Automation uses cookies and similar tracking technologies when you visit our website. This policy provides detailed information about the types of cookies we use, why we use them, and how you can control them."
+    },
+    "whatAreCookies": {
+      "title": "What Are Cookies?",
+      "content": "Cookies are small text files that are placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners. Cookies can be \"persistent\" or \"session\" cookies. Persistent cookies remain on your device after you close your browser, while session cookies are deleted when you close your browser."
+    },
+    "howWeUse": {
+      "title": "How We Use Cookies",
+      "content": "We use cookies to improve your browsing experience, analyze site traffic, personalize content, and understand how our website is used. Cookies help us remember your preferences, provide relevant features, and ensure the website functions properly."
+    },
+    "categories": {
+      "title": "Types of Cookies We Use"
+    },
+    "detailedList": {
+      "title": "Detailed Cookie Information",
+      "content": "Below is a comprehensive list of all cookies used on our website, including their purpose, duration, and provider information."
+    },
+    "managing": {
+      "title": "Managing Your Cookie Preferences",
+      "content": "You can manage your cookie preferences at any time by clicking the button below. This will open our cookie settings where you can enable or disable different types of cookies.",
+      "button": "Manage Cookie Preferences"
+    },
+    "browserSettings": {
+      "title": "Browser Cookie Settings",
+      "content": "Most web browsers allow you to control cookies through their settings. You can set your browser to refuse cookies or delete certain cookies. Please note that if you disable cookies, some features of our website may not function properly. To learn more about how to manage cookies in your browser, please refer to your browser's help documentation."
+    },
+    "contact": {
+      "title": "Questions About Cookies?",
+      "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:"
     }
   }
 }

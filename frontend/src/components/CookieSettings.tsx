@@ -32,8 +32,13 @@ export function CookieSettings() {
     savePreferences(localPreferences)
   }
 
-  const handleAcceptSelected = () => {
-    savePreferences(localPreferences)
+  const handleAcceptAll = () => {
+    const allAccepted: CookiePreferences = {
+      necessary: true,
+      analytics: true,
+      marketing: true,
+    }
+    savePreferences(allAccepted)
   }
 
   const handleCheckboxChange = (category: keyof CookiePreferences, checked: boolean) => {
@@ -138,7 +143,7 @@ export function CookieSettings() {
           <Button variant="outline" onClick={handleSave}>
             {t('cookies.settings.savePreferences')}
           </Button>
-          <Button onClick={handleAcceptSelected}>
+          <Button onClick={handleAcceptAll}>
             {t('cookies.settings.acceptSelected')}
           </Button>
         </div>

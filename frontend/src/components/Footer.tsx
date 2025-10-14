@@ -1,5 +1,6 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'wouter';
 import { useCookieConsent } from '@/hooks/use-cookie-consent';
 
 export default function Footer() {
@@ -94,18 +95,21 @@ export default function Footer() {
             {t('footer.copyright')}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#privacy" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-privacy">
+            <Link href="/privacy" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-privacy">
               {t('footer.privacyPolicy')}
-            </a>
+            </Link>
             <a href="#terms" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-terms">
               {t('footer.termsOfService')}
             </a>
+            <Link href="/cookie-policy" className="text-primary-foreground/60 hover:text-primary-foreground" data-testid="link-cookie-policy">
+              {t('footer.cookiePolicy')}
+            </Link>
             <button
               onClick={() => openSettings()}
               className="text-primary-foreground/60 hover:text-primary-foreground transition-colors text-sm bg-transparent border-none cursor-pointer p-0"
-              data-testid="link-cookies"
+              data-testid="link-cookie-settings"
             >
-              {t('footer.cookiePolicy')}
+              {t('footer.cookieSettings')}
             </button>
           </div>
         </div>
