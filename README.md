@@ -271,6 +271,40 @@ docker-compose exec frontend cat /etc/nginx/nginx.conf
 3. **Use HTTPS** - In production, use reverse proxy (Traefik, Caddy) for SSL
 4. **Limit exposed ports** - Only expose necessary ports externally
 
+## Production Deployment
+
+This application automatically deploys to DigitalOcean when code is pushed to the `main` branch.
+
+### Automated Deployment
+
+- **Trigger:** Push to `main` branch
+- **Platform:** DigitalOcean $6 Droplet
+- **Orchestration:** Docker Compose
+- **CI/CD:** GitHub Actions
+
+### Setup Instructions
+
+For complete deployment setup instructions, see [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md).
+
+### Quick Deploy
+
+```bash
+# Manual deployment on server
+ssh root@YOUR_DROPLET_IP
+cd /root/AR_Website_v3
+./deploy.sh
+```
+
+### Monitoring
+
+- Application: http://YOUR_DROPLET_IP
+- API Health: http://YOUR_DROPLET_IP:8000/health
+- Logs: `docker-compose -f docker-compose.prod.yml logs -f`
+
+### Quick Reference
+
+For common deployment commands, see [docs/DEPLOYMENT_QUICK_REF.md](./docs/DEPLOYMENT_QUICK_REF.md).
+
 ## Project Structure Details
 
 See individual README files:
