@@ -33,7 +33,7 @@ cp .env.example .env
 Open `.env` and configure:
 
 ```env
-# Use local Docker database (comment out Neon URL)
+# Use local Docker database
 DATABASE_URL=postgresql://postgres:postgres@db:5432/ar_automation
 
 # PostgreSQL settings
@@ -115,7 +115,7 @@ ar3_website/
 
 ### Infrastructure
 - Docker + Docker Compose
-- PostgreSQL (local or Neon cloud)
+- PostgreSQL (local Docker)
 
 ## Development Workflow
 
@@ -273,29 +273,13 @@ pytest  # (when tests are implemented)
 
 ## Deployment
 
-### Development
-Using Docker Compose (current setup):
+Using Docker Compose:
+
 ```bash
 docker-compose up --build
 ```
 
-### Production Options
-
-**Option 1: Full-stack hosting (recommended)**
-- Platforms: Railway, Render, DigitalOcean
-- Deploy both frontend + backend together
-- Use Neon for PostgreSQL database
-
-**Option 2: Split deployment**
-- Frontend: Vercel, Netlify, Cloudflare Pages
-- Backend: Railway, Render
-- Database: Neon
-
-**Option 3: Static site only**
-- Deploy to GitHub Pages
-- Remove chatbot functionality (requires backend)
-
-See [CLAUDE.md](./CLAUDE.md) for detailed deployment instructions.
+Configure environment variables in `.env` for your target environment (development or production).
 
 ## Additional Documentation
 

@@ -823,29 +823,6 @@ pip install --upgrade -r requirements.txt
 pip freeze > requirements.txt
 ```
 
-### Database Migrations
-
-Currently using SQLAlchemy auto-create. For production:
-
-```bash
-pip install alembic
-alembic init migrations
-alembic revision --autogenerate -m "description"
-alembic upgrade head
-```
-
-## Deployment
-
-See [PROGRESS.md](./PROGRESS.md#deployment-strategy) for deployment options.
-
-**Production checklist:**
-- [ ] Environment variables configured
-- [ ] Database set up (Neon recommended)
-- [ ] CORS configured correctly
-- [ ] SSL/HTTPS enabled
-- [ ] Error logging configured (Sentry)
-- [ ] Analytics configured
-
 ## Getting Help
 
 - **Technical questions**: See [CLAUDE.md](./CLAUDE.md)

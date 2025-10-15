@@ -9,7 +9,7 @@ FastAPI backend with LangGraph-powered AI chatbot for lead qualification and con
 - **LangGraph** - Stateful AI agent orchestration
 - **OpenAI GPT-4** - Language model
 - **SQLAlchemy** - ORM
-- **PostgreSQL** - Database (Neon or local)
+- **PostgreSQL** - Database
 - **Pydantic** - Data validation
 - **Uvicorn** - ASGI server
 
@@ -32,7 +32,7 @@ backend/
 ### Prerequisites
 
 - Python 3.11+
-- PostgreSQL (or Neon database)
+- PostgreSQL database
 - OpenAI API key
 
 ### Installation

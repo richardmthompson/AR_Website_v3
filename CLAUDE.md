@@ -10,8 +10,8 @@
 | **Purpose** | Marketing site + AI chatbot lead qualification |
 | **Languages** | English/German (i18next) |
 | **Key Features** | Multi-page site, Solutions architecture, AI chatbot, Industry demos, Resource library |
-| **Database** | PostgreSQL (local dev) / Neon (production) |
-| **Deployment** | Docker Compose (dev), Railway/Render (production) |
+| **Database** | PostgreSQL (local Docker) |
+| **Deployment** | Docker Compose |
 
 ## Core Development Philosophy
 
@@ -111,7 +111,7 @@ The frontend is a **multi-page application** with the following routes:
 
 ### Infrastructure
 - **Docker + Docker Compose** for containerization
-- **PostgreSQL** (local or Neon cloud)
+- **PostgreSQL** (local Docker)
 
 ## Architecture Patterns
 
@@ -301,23 +301,13 @@ pytest
 
 ## Deployment
 
-### Option 1: Full-Stack (Recommended)
-Deploy frontend + backend together:
-- **Platforms**: Railway, Render, DigitalOcean
-- **Frontend**: Build with `npm run build`, serve as static assets
-- **Backend**: Run with `gunicorn -k uvicorn.workers.UvicornWorker app.main:app`
-- **Database**: Use Neon (serverless PostgreSQL)
+Using Docker Compose:
 
-### Option 2: Split Deployment
-- **Frontend**: Vercel, Netlify, Cloudflare Pages
-- **Backend**: Railway, Render, AWS Lambda
-- **Note**: Update frontend API URLs to backend domain
+```bash
+docker-compose up --build
+```
 
-### Option 3: Static Only (Limited)
-For marketing site without chatbot:
-- Deploy to GitHub Pages
-- Replace InlineChatbot with contact form
-- **Limitation**: No AI chatbot functionality
+Configure environment variables in `.env` for your target environment (development or production).
 
 ## Additional Documentation
 
@@ -403,9 +393,8 @@ For complete framework documentation, see `.claude/Context-Engineering-Cognitive
 - Both work together harmoniously on the landing page
 
 ### Database Strategy
-- **Development**: Local PostgreSQL via Docker
-- **Production**: Neon serverless PostgreSQL
-- **Migration**: Tables auto-create on first run via SQLAlchemy
+- PostgreSQL via Docker
+- Tables auto-create on first run via SQLAlchemy
 
 ### API Design
 - RESTful endpoints for chat operations
