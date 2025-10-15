@@ -26,7 +26,7 @@ function Router() {
       <Route path="/demos" component={DemosPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
-      <Route path="/contact" component={ContactPage} />
+      <Route path="/team" component={TeamPage} />
       <Route path="/edtechsummit" component={EdTechSummitPage} />
       {/* 404 catch-all */}
       <Route component={NotFound} />
