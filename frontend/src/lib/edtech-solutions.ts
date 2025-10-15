@@ -40,6 +40,7 @@ export interface ArchitecturePattern {
   architectureFlow: string[];
   useCases: string[];
   technicalComponents: string[];
+  mermaidDiagram?: string; // Optional Mermaid diagram definition
 }
 
 export interface ProspectSolution {
@@ -462,7 +463,25 @@ export const architecturePatterns: ArchitecturePattern[] = [
       'n8n workflow orchestration',
       'PostgreSQL for state management',
       'Webhook triggers for real-time processing'
-    ]
+    ],
+    mermaidDiagram: `flowchart LR
+    A[Document Source<br/>Email/Upload/API] --> B[n8n Workflow<br/>Extract + Route to Queue]
+    B --> C[Agentic AI Agent<br/>OCR → Classify → Extract → Validate]
+    C --> D{Valid?}
+    D -->|Yes| E[n8n Workflow<br/>Update Database<br/>Notify Stakeholders<br/>Archive Document]
+    D -->|No| F[Agentic AI Agent<br/>Handle Exceptions<br/>Request Missing Info]
+    F --> G[Human Review/<br/>Resubmission]
+    G --> B
+    E --> H[Complete]
+
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style B fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style C fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style D fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style E fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style F fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style G fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style H fill:#e8f5e9,stroke:#388e3c,stroke-width:2px`
   },
   {
     id: 'conversational-agent',
@@ -490,7 +509,32 @@ export const architecturePatterns: ArchitecturePattern[] = [
       'Redis for session state',
       'Twilio/WhatsApp for messaging',
       'Voice AI integration (optional)'
-    ]
+    ],
+    mermaidDiagram: `flowchart TD
+    A[User Input<br/>Student/Parent/Admin] --> B[Agentic AI<br/>Conversational Interface<br/>Multilingual Support]
+    B --> C{Intent<br/>Recognition}
+    C -->|Query Info| D[n8n Workflow<br/>Query Systems<br/>SIS/LMS/Finance/Housing]
+    C -->|Execute Action| E[n8n Workflow<br/>Execute Actions<br/>Enroll/Pay/Update]
+    D --> F[(Multiple<br/>Systems)]
+    F --> G[Agentic AI<br/>Synthesize Info<br/>Generate Response]
+    E --> H[Agentic AI<br/>Confirm Action<br/>Follow-up Questions]
+    G --> I[Response to User]
+    H --> I
+    I --> J{Conversation<br/>Complete?}
+    J -->|No| B
+    J -->|Yes| K[End Session]
+
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style B fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style C fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style D fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style E fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style F fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style G fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style H fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style I fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style J fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style K fill:#e8f5e9,stroke:#388e3c,stroke-width:2px`
   },
   {
     id: 'workflow-orchestration',
@@ -518,7 +562,39 @@ export const architecturePatterns: ArchitecturePattern[] = [
       'OpenAI GPT-4 for assessment',
       'Multi-system API integrations',
       'Notification services (email, SMS, Slack)'
-    ]
+    ],
+    mermaidDiagram: `flowchart TD
+    A[Trigger Event<br/>Application/Enrollment/Submission] --> B[n8n Workflow<br/>Fetch Required Data<br/>from Multiple Systems]
+    B --> C[(Source<br/>Systems)]
+    C --> D[Agentic AI Agent<br/>Assess Eligibility<br/>Make Recommendation]
+    D --> E{AI Decision}
+    E -->|Approved| F[n8n Workflow<br/>Auto-Process Route]
+    E -->|Review Needed| G[n8n Workflow<br/>Human Review Route]
+    E -->|Rejected| H[n8n Workflow<br/>Rejection Route]
+    F --> I[Agentic AI<br/>Communicate<br/>Approval to Stakeholders]
+    G --> J[Human Reviewer]
+    H --> K[Agentic AI<br/>Communicate<br/>Rejection + Next Steps]
+    J --> L{Review<br/>Decision}
+    L -->|Approve| F
+    L -->|Reject| H
+    I --> M[n8n Workflow<br/>Update All Systems<br/>Generate Reports]
+    K --> M
+    M --> N[Complete]
+
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style B fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style C fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style D fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style E fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style F fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style G fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style H fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style I fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style J fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style K fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style L fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style M fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style N fill:#e8f5e9,stroke:#388e3c,stroke-width:2px`
   },
   {
     id: 'data-synchronization',
@@ -545,7 +621,42 @@ export const architecturePatterns: ArchitecturePattern[] = [
       'ETL transformation logic',
       'Data warehouse (Snowflake/BigQuery)',
       'Anomaly detection algorithms'
-    ]
+    ],
+    mermaidDiagram: `flowchart TD
+    A[(Source System 1<br/>SIS)] --> E[n8n Workflow<br/>Extract Data<br/>Schedule/Trigger]
+    B[(Source System 2<br/>LMS)] --> E
+    C[(Source System 3<br/>CRM)] --> E
+    D[(Source System 4<br/>Finance)] --> E
+    E --> F[Agentic AI Agent<br/>Deduplicate Records<br/>Using Embeddings]
+    F --> G{Conflicts<br/>Detected?}
+    G -->|Yes| H[Agentic AI Agent<br/>Resolve Conflicts<br/>Apply Business Rules]
+    G -->|No| I[Agentic AI Agent<br/>Enrich Data<br/>Validate Quality]
+    H --> I
+    I --> J[Agentic AI Agent<br/>Anomaly Detection<br/>Flag Issues]
+    J --> K{Anomalies<br/>Found?}
+    K -->|Yes| L[Human Review<br/>Queue]
+    K -->|No| M[n8n Workflow<br/>Write to Target Systems<br/>+ Data Warehouse]
+    L --> N[Manual Resolution]
+    N --> M
+    M --> O[(Target<br/>Systems)]
+    M --> P[(Data<br/>Warehouse)]
+
+    style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style C fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style D fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style E fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style F fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style G fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style H fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style I fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style J fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style K fill:#fff9c4,stroke:#f9a825,stroke-width:2px
+    style L fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style M fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style N fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style P fill:#e0f2f1,stroke:#00897b,stroke-width:2px`
   }
 ];
 

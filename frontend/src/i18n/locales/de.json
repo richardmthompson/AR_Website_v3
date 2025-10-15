@@ -131,6 +131,15 @@
     "guarantee": "Risikoumkehr-Garantie:",
     "guaranteeText": "Wenn wir nicht mindestens 15% Effizienzsteigerung identifizieren können, ist das Audit kostenlos."
   },
+  "team": {
+    "badge": "Unser Team",
+    "headline": "Lernen Sie unser Team kennen",
+    "subheadline": "Experten für Automatisierungsarchitektur, die sich der Transformation Ihrer Geschäftsprozesse widmen",
+    "credentialsTitle": "Ausbildung & Qualifikationen",
+    "ctaHeadline": "Bereit, Ihr Unternehmen zu transformieren?",
+    "ctaSubheadline": "Vereinbaren Sie eine Beratung, um Automatisierungsmöglichkeiten für Ihr Unternehmen zu erkunden",
+    "ctaButton": "Beratung vereinbaren"
+  },
   "footer": {
     "tagline": "Das Langweilige automatisieren, damit Sie das Unternehmen Ihrer Träume aufbauen können.",
     "company": "Unternehmen",
