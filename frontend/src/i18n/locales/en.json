@@ -131,6 +131,15 @@
     "guarantee": "Risk Reversal Guarantee:",
     "guaranteeText": "If we can't identify at least 15% efficiency gains, the audit is free."
   },
+  "team": {
+    "badge": "Our Team",
+    "headline": "Meet Our Team",
+    "subheadline": "Expert automation architects dedicated to transforming your business processes",
+    "credentialsTitle": "Education & Credentials",
+    "ctaHeadline": "Ready to Transform Your Business?",
+    "ctaSubheadline": "Schedule a consultation to explore automation opportunities for your organization",
+    "ctaButton": "Schedule a Consultation"
+  },
   "footer": {
     "tagline": "Automating the boring stuff so you can build the business you dreamed of.",
     "company": "Company",

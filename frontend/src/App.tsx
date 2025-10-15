@@ -7,13 +7,18 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { useCookieScripts } from "@/hooks/use-cookie-scripts";
 import HomePage from "@/pages/HomePage";
 import EdTechSolutionsPage from "@/pages/EdTechSolutionsPage";
+import EdTechSummitPage from "@/pages/EdTechSummitPage";
 import SolutionsPage from "@/pages/SolutionsPage";
 import UseCasesPage from "@/pages/UseCasesPage";
 import DemosPage from "@/pages/DemosPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ConferencePage from "@/pages/ConferencePage";
+<<<<<<< HEAD
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
 import CookiePolicyPage from "@/pages/CookiePolicyPage";
+=======
+import TeamPage from "@/pages/TeamPage";
+>>>>>>> main
 import NotFound from "@/pages/not-found";
 import "./i18n/config";
 
@@ -28,8 +33,13 @@ function Router() {
       <Route path="/demos" component={DemosPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
+<<<<<<< HEAD
       <Route path="/privacy" component={PrivacyPolicyPage} />
       <Route path="/cookie-policy" component={CookiePolicyPage} />
+=======
+      <Route path="/team" component={TeamPage} />
+      <Route path="/edtechsummit" component={EdTechSummitPage} />
+>>>>>>> main
       {/* 404 catch-all */}
       <Route component={NotFound} />
     </Switch>

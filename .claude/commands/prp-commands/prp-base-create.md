@@ -17,6 +17,8 @@ Create a comprehensive PRP that enables **one-pass implementation success** thro
 
 ## Research Process
 
+**IMPORTANT**: Remember that subagents will only receive their details from you. The user has no way of interacting with the subagents, so you need to share all the relevant context (including the feature: "$ARGUMENTS") to the subagent in the subagent prompt and in the TODO that is shared with the particular agent.
+
 > During the research process, create clear tasks and spawn as many agents and subagents as needed using the batch tools. The deeper research we do here the better the PRP will be. we optminize for chance of success and not for speed.
 
 1. **Codebase Analysis in depth**
