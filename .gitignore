@@ -47,6 +47,7 @@ build/
 # Testing
 coverage/
 .nyc_output/
+.playwright-mcp/
 
 # Misc
 *.pem
