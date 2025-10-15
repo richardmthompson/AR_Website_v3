@@ -58,9 +58,11 @@ export default function Navigation() {
                 </div>
               )}
             </div>
-            <a href="#team" className="hover-elevate px-3 py-2 rounded-md" data-testid="link-team">
-              {t('nav.team')}
-            </a>
+            <Link href="/team">
+              <a className="hover-elevate px-3 py-2 rounded-md" data-testid="link-team">
+                {t('nav.team')}
+              </a>
+            </Link>
             <a href="#resources" className="hover-elevate px-3 py-2 rounded-md" data-testid="link-resources">
               {t('nav.resources')}
             </a>
@@ -108,9 +110,11 @@ export default function Navigation() {
               <a href="/#industries" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-ecommerce">
                 {t('industries.ecommerce')}
               </a>
-              <a href="#team" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-team">
-                {t('nav.team')}
-              </a>
+              <Link href="/team">
+                <a className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-team">
+                  {t('nav.team')}
+                </a>
+              </Link>
               <a href="#resources" className="hover-elevate px-3 py-2 rounded-md" data-testid="mobile-link-resources">
                 {t('nav.resources')}
               </a>
