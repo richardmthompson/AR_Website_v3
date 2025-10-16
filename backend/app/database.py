@@ -8,7 +8,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable is not set")
 
-# Configure engine with connection pooling and SSL for Neon database
+# Configure engine with connection pooling and optional SSL
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,  # Verify connections before using
@@ -16,7 +16,7 @@ engine = create_engine(
     connect_args={
         "sslmode": "require",
         "connect_timeout": 10,
-    } if "neon" in DATABASE_URL or "ssl=true" in DATABASE_URL else {}
+    } if "ssl=true" in DATABASE_URL else {}
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
