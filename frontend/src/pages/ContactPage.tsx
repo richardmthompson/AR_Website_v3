@@ -40,9 +40,10 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12 items-start">
-            {/* Left: Chatbot + Fallback Options (2 columns) */}
+            {/* Left: Contact Form (2 columns) */}
             <div className="lg:col-span-2 space-y-8">
-              <ContactChatbot />
+              {/* Chatbot temporarily disabled */}
+              {/* <ContactChatbot /> */}
               <FallbackContactOptions />
             </div>
 
@@ -334,7 +335,7 @@ function ContactChatbot() {
 
 // Fallback contact options for users who prefer traditional methods
 function FallbackContactOptions() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [fallbackEmail, setFallbackEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -345,18 +346,34 @@ function FallbackContactOptions() {
 
     setIsSubmitting(true);
 
-    // TODO: Send fallback email to backend
-    console.log('Fallback email submitted:', fallbackEmail);
+    try {
+      // Call backend API
+      const response = await apiRequest('POST', '/api/contact/email', {
+        email: fallbackEmail,
+        language: i18n.language
+      });
 
-    // Simulate API call
-    setTimeout(() => {
+      const data = await response.json();
+
+      // Handle success
+      if (data.success) {
+        setSubmitted(true);
+        setFallbackEmail('');
+
+        // Auto-reset success state after 3 seconds
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        console.error('Email submission failed:', data.message);
+      }
+
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      // Keep email in field so user can retry
+
+    } finally {
+      // Always reset loading state
       setIsSubmitting(false);
-      setSubmitted(true);
-      setFallbackEmail('');
-
-      // Reset submitted state after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1000);
+    }
   };
 
   const handleEmailDirect = () => {
@@ -366,25 +383,15 @@ function FallbackContactOptions() {
 
   return (
     <div className="space-y-6">
-      {/* Divider */}
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-background text-muted-foreground">or</span>
-        </div>
-      </div>
-
-      {/* Old School Contact Form */}
-      <Card className="border-dashed">
+      {/* Contact Form */}
+      <Card>
         <CardContent className="pt-6">
           <div className="text-center mb-6">
             <h3 className="text-lg font-semibold text-foreground mb-2">
-              Is Max having a bad day? Or do you just want to connect old school style?
+              Get in touch with us for a personalized consultation
             </h3>
             <p className="text-sm text-muted-foreground">
-              Leave us your email and we'll reach out to you directly
+              Do you want to talk more about what automation and agentic workflows would mean for you and your business?
             </p>
           </div>
 

@@ -13,7 +13,9 @@ from .models import (
     ConversationResponse,
     ConversationWithMessages,
     MessageResponse,
-    LeadCreate
+    LeadCreate,
+    ContactEmailRequest,
+    ContactEmailResponse
 )
 from .langgraph_agent import conversation_graph, extract_lead_data
 from .contact_agent import contact_form_graph
@@ -453,6 +455,44 @@ async def create_lead(lead_data: LeadCreate, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.post("/api/contact/email", response_model=ContactEmailResponse)
+async def submit_contact_email(
+    request: ContactEmailRequest,
+    background_tasks: BackgroundTasks
+):
+    """Handle simple email submission for contact requests"""
+    try:
+        # Create lead_data dict for email functions
+        lead_data = {
+            "name": "Website Visitor",
+            "email": request.email,
+            "phone": "Not provided",
+            "company": "Unknown",
+            "role": "Unknown",
+            "organization_type": "Unknown",
+            "operational_challenges": "Interested in learning more",
+            "automation_goals": "Requested contact via email form",
+            "additional_context": "",
+            "timestamp": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
+        }
+
+        # Send emails in background (non-blocking)
+        background_tasks.add_task(send_internal_notification, lead_data)
+        background_tasks.add_task(send_thank_you_email, lead_data)
+
+        # Return success response immediately
+        return ContactEmailResponse(
+            success=True,
+            message="Thank you! We'll be in touch soon."
+        )
+
+    except Exception as e:
+        print(f"❌ Error in contact email submission: {e}")
+        return ContactEmailResponse(
+            success=False,
+            message="Sorry, there was an error. Please try again."
+        )
 
 if __name__ == "__main__":
     import uvicorn

@@ -40,6 +40,10 @@ services:
       LANGCHAIN_TRACING_V2: ${LANGCHAIN_TRACING_V2:-false}
       LANGCHAIN_PROJECT: ${LANGCHAIN_PROJECT:-ar-automation}
 
+      # Email Service (Resend)
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      INTERNAL_NOTIFICATION_EMAIL: ${INTERNAL_NOTIFICATION_EMAIL:-team@arautomation.com}
+
       # Application settings
       ENVIRONMENT: ${ENVIRONMENT:-development}
     ports:

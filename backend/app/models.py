@@ -63,3 +63,11 @@ class LeadCreate(CamelModel):
     additional_context: Optional[str]
     additional_info: Optional[Dict[str, Any]]
     status: Optional[str] = 'new'
+
+class ContactEmailRequest(CamelModel):
+    email: str
+    language: Optional[str] = 'en'
+
+class ContactEmailResponse(CamelModel):
+    success: bool
+    message: str
