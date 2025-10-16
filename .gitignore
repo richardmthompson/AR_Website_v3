@@ -58,3 +58,7 @@ docs/langchain/
 docs/langgraph/
 docs/langx-docs.md
 docs/convert_to_markdown.py
+
+# artifacts
+.claude/artifacts/EdTech-Conf-CheatSheet.md
+.claude/artifacts/EdTech-Conf-Conv-Guide.md

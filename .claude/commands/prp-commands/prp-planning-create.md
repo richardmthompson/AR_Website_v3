@@ -28,7 +28,7 @@ Transform rough ideas into comprehensive PRDs with rich visual documentation.
 
 ## PRD Generation
 
-Using /PRPs/templates/prp_planning_base.md:
+Using .claude/PRPs/templates/prp_planning_base.md:
 
 ### Visual Documentation Plan
 ```yaml
@@ -123,7 +123,7 @@ diagrams_needed:
 10. Appendices
 ```
 
-Save as: `PRPs/{feature-name}-prd.md`
+Save as: `.claude/PRPs/PRPs/{feature-name}-prd.md`
 
 ## Quality Checklist
 - [ ] Problem clearly articulated

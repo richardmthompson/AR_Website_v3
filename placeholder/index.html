@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AR Automation - AI-powered business automation solutions. Coming soon.">
+  <title>AR Automation - Coming Soon</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* 1. CSS Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333333;
+    }
+
+    /* 2. Navigation styles */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #002647;
+      cursor: pointer;
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-coming-soon {
+      color: #002647;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    /* 3. Hero section styles */
+    .hero {
+      position: relative;
+      padding: 5rem 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #002647, #003d73);
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      color: #ffffff;
+    }
+
+    .hero-headline {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subheadline {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      max-width: 42rem;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* 4. Button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      min-height: 2.5rem;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      transition: opacity 0.2s, background-color 0.2s;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: #ffffff;
+      color: #002647;
+      border-color: #ffffff;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      min-height: 3rem;
+    }
+
+    .btn-primary:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-contact {
+      background-color: #002647;
+      color: #ffffff;
+      border-color: #002647;
+    }
+
+    .btn-contact:hover {
+      opacity: 0.9;
+    }
+
+    /* 5. Responsive media queries */
+
+    /* Tablet: 640px and above */
+    @media (min-width: 640px) {
+      .hero-headline {
+        font-size: 3rem;
+      }
+
+      .hero-subheadline {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Desktop: 1024px and above */
+    @media (min-width: 1024px) {
+      .hero {
+        padding: 8rem 0;
+      }
+
+      .hero-container {
+        grid-template-columns: 3fr 2fr;
+      }
+
+      .hero-headline {
+        font-size: 3.75rem;
+      }
+    }
+
+    /* Mobile adjustments: Below 640px */
+    @media (max-width: 639px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-items {
+        gap: 1rem;
+      }
+
+      .nav-coming-soon {
+        display: none;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      .btn-contact {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        min-height: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <div class="nav-container">
+        <div class="logo">AR Automation</div>
+        <div class="nav-items">
+          <span class="nav-coming-soon">Coming Soon</span>
+          <a href="mailto:hello@arlabs.tech" class="btn btn-contact">Get in Touch</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-headline">Automate the boring stuff. Build the business you dreamed of.</h1>
+          <p class="hero-subheadline">We help mid-sized organizations eliminate repetitive work and transform operations from reactivity and unproductive staff-hours to strategic efficiency with AI-powered agents and automations.</p>
+          <a href="mailto:hello@arlabs.tech" class="btn btn-primary">Schedule Free Audit</a>
+        </div>
+        <div class="hero-image">
+          <img src="assets/images/hero-image.png" alt="AI Automation Network Visualization" loading="eager">
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

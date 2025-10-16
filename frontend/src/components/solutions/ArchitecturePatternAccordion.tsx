@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { architecturePatterns } from "@/lib/edtech-solutions";
+import { architecturePatterns } from "@/data/edtech-solutions";
 
 export default function ArchitecturePatternAccordion() {
   return (
