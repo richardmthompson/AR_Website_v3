@@ -1,10 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 import heroImage from '@assets/images/AI_automation_network_hero_visual_656dfdf1.png';
 
 export default function HeroSection() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+  const [, setLocation] = useLocation();
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden bg-primary">
       <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark -z-10" />
@@ -19,7 +21,7 @@ export default function HeroSection() {
               {t('hero.subheadline')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group bg-background text-foreground hover:bg-background/90" data-testid="button-schedule-audit">
+              <Button onClick={() => setLocation('/contact')} size="lg" className="group bg-background text-foreground hover:bg-background/90" data-testid="button-schedule-audit">
                 {t('hero.scheduleAudit')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>

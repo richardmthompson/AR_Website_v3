@@ -11,27 +11,27 @@ export default function Footer() {
     {
       title: t('footer.company'),
       links: [
-        { label: t('footer.aboutUs'), href: '#about' },
-        { label: t('footer.team'), href: '#team' },
-        { label: t('footer.careers'), href: '#careers' },
-        { label: t('footer.contact'), href: '#contact' },
+        { label: t('footer.aboutUs'), href: '#about', external: true },
+        { label: t('footer.team'), href: '#team', external: true },
+        { label: t('footer.careers'), href: '#careers', external: true },
+        { label: t('footer.contact'), href: '/contact', external: false },
       ],
     },
     {
       title: t('footer.industries'),
       links: [
-        { label: t('industries.accounting'), href: '#accounting' },
-        { label: t('industries.ecommerce'), href: '#ecommerce' },
-        { label: t('industries.education'), href: '#education' },
+        { label: t('industries.accounting'), href: '#accounting', external: true },
+        { label: t('industries.ecommerce'), href: '#ecommerce', external: true },
+        { label: t('industries.education'), href: '#education', external: true },
       ],
     },
     {
       title: t('footer.resources'),
       links: [
-        { label: t('footer.blog'), href: '#blog' },
-        { label: t('footer.caseStudies'), href: '#case-studies' },
-        { label: t('footer.documentation'), href: '#docs' },
-        { label: t('footer.roiCalculator'), href: '#calculator' },
+        { label: t('footer.blog'), href: '#blog', external: true },
+        { label: t('footer.caseStudies'), href: '#case-studies', external: true },
+        { label: t('footer.documentation'), href: '#docs', external: true },
+        { label: t('footer.roiCalculator'), href: '#calculator', external: true },
       ],
     },
   ];
@@ -76,13 +76,24 @@ export default function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
-                      href={link.href}
-                      className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                      data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link.label}
-                    </a>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                        data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href}>
+                        <a
+                          className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                          data-testid={`link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {link.label}
+                        </a>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

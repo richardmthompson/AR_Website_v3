@@ -13,6 +13,7 @@ import UseCasesPage from "@/pages/UseCasesPage";
 import DemosPage from "@/pages/DemosPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import ConferencePage from "@/pages/ConferencePage";
+import ContactPage from "@/pages/ContactPage";
 import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
 import CookiePolicyPage from "@/pages/CookiePolicyPage";
 import TeamPage from "@/pages/TeamPage";
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/demos" component={DemosPage} />
       <Route path="/resources" component={ResourcesPage} />
       <Route path="/conference" component={ConferencePage} />
+      <Route path="/contact" component={ContactPage} />
       <Route path="/privacy" component={PrivacyPolicyPage} />
       <Route path="/cookie-policy" component={CookiePolicyPage} />
       <Route path="/team" component={TeamPage} />

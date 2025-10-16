@@ -4,8 +4,11 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Building2, TrendingUp, MapPin, ArrowRight } from 'lucide-react';
+import { useLocation } from 'wouter';
 
 export default function UseCasesPage() {
+  const [, setLocation] = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -229,7 +232,7 @@ export default function UseCasesPage() {
           <p className="text-xl text-muted-foreground mb-8">
             Schedule a consultation to explore how we can transform your operations
           </p>
-          <Button size="lg" className="text-lg px-8">
+          <Button size="lg" className="text-lg px-8" onClick={() => setLocation('/contact')}>
             Schedule Consultation
           </Button>
         </div>

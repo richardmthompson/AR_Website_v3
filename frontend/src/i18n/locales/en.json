@@ -76,7 +76,23 @@
     "sending": "Sending",
     "thinking": "Max is thinking...",
     "error": "I'm having trouble connecting right now. Please try again in a moment.",
-    "securityNote": "Your information is secure and will only be used to provide you with automation solutions"
+    "securityNote": "Your information is secure and will only be used to provide you with automation solutions",
+    "conversationClosed": "Conversation has ended"
+  },
+  "contact": {
+    "pageTitle": "Let's Talk About Your Automation Needs",
+    "pageSubtitle": "Chat with Max, our AI assistant, for a personalized consultation",
+    "chatbotHeader": "Chat with Max",
+    "greeting": "Hi, I'm Max. Let's get some contact details from you. Can we start with your full name?",
+    "whatToExpectTitle": "What to Expect",
+    "responseTime": "We typically respond within 24 hours",
+    "discussionTopics": [
+      "Deep-dive into your specific operational challenges",
+      "Discussion of relevant automation solutions",
+      "ROI analysis for your organization",
+      "Introduction to our technical approach",
+      "Implementation timeline and next steps"
+    ]
   },
   "solutions": {
     "headline": "Our Core Solutions",
