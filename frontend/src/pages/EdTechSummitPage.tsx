@@ -8,7 +8,7 @@ import {
   solutionCategories,
   technicalCapabilities,
   architecturePatterns
-} from '@/lib/edtech-solutions';
+} from '@/data/edtech-solutions';
 import { MapPin, TrendingUp, CheckCircle2, Brain, Link2, Zap, Award, Shield, ClipboardCheck, Briefcase, Globe, DollarSign, BookOpen, Building2 } from 'lucide-react';
 import MermaidDiagram from '@/components/MermaidDiagram';
 

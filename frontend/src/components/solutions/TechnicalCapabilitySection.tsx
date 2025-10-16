@@ -1,4 +1,4 @@
-import { technicalCapabilities } from '@/lib/edtech-solutions';
+import { technicalCapabilities } from '@/data/edtech-solutions';
 import * as Icons from 'lucide-react';
 
 export default function TechnicalCapabilitySection() {

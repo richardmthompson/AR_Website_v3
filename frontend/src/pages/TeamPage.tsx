@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { TeamMemberCard } from '@/components/TeamMemberCard';
-import { teamMembers } from '@/lib/team-data';
+import { teamMembers } from '@/data/team-data';
 
 export default function TeamPage() {
   const { t } = useTranslation();

@@ -3,7 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Mail, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import type { TeamMember } from '@/lib/team-data';
+import type { TeamMember } from '@/data/team-data';
 
 interface TeamMemberCardProps {
   member: TeamMember;
