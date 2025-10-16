@@ -147,6 +147,15 @@
     "guarantee": "Risk Reversal Guarantee:",
     "guaranteeText": "If we can't identify at least 15% efficiency gains, the audit is free."
   },
+  "team": {
+    "badge": "Our Team",
+    "headline": "Meet Our Team",
+    "subheadline": "Expert automation architects dedicated to transforming your business processes",
+    "credentialsTitle": "Education & Credentials",
+    "ctaHeadline": "Ready to Transform Your Business?",
+    "ctaSubheadline": "Schedule a consultation to explore automation opportunities for your organization",
+    "ctaButton": "Schedule a Consultation"
+  },
   "footer": {
     "tagline": "Automating the boring stuff so you can build the business you dreamed of.",
     "company": "Company",
@@ -163,6 +172,202 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
+    "cookieSettings": "Cookie Settings",
     "copyright": "© 2025 AR Automation. All rights reserved."
+  },
+  "cookies": {
+    "banner": {
+      "title": "We Value Your Privacy",
+      "message": "We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Choose your preferences below.",
+      "acceptAll": "Accept all Cookies",
+      "rejectAll": "Only technically required",
+      "customize": "Configure",
+      "privacyPolicy": "Privacy Policy",
+      "privacyPolicyLink": "Learn more in our Privacy Policy"
+    },
+    "settings": {
+      "title": "Cookie Preferences",
+      "description": "Manage your cookie preferences. You can enable or disable different types of cookies below.",
+      "necessary": {
+        "title": "Necessary Cookies",
+        "description": "These cookies are essential for the website to function and cannot be disabled. They are usually set in response to actions you make, such as setting your privacy preferences or filling in forms."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our website, providing information about areas visited, time spent, and any issues encountered."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "These cookies are used to deliver personalized advertisements that are relevant to you and your interests. They may be set by us or by third-party providers."
+      },
+      "alwaysEnabled": "Always Enabled",
+      "savePreferences": "Save Preferences",
+      "acceptSelected": "Accept All",
+      "withdrawalInfo": "You can change these preferences at any time via the Cookie Policy link in our footer."
+    },
+    "details": {
+      "title": "Detailed Cookie Information",
+      "description": "Complete list of cookies used on this website",
+      "columns": {
+        "name": "Cookie Name",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "provider": "Provider"
+      },
+      "necessary": {
+        "cookies": [
+          {
+            "name": "cookie-consent",
+            "purpose": "Stores your cookie preferences",
+            "duration": "12 months",
+            "provider": "First-party (AR Automation)"
+          },
+          {
+            "name": "i18nextLng",
+            "purpose": "Remembers your language preference",
+            "duration": "Session",
+            "provider": "First-party (AR Automation)"
+          }
+        ]
+      },
+      "analytics": {
+        "cookies": [
+          {
+            "name": "_ga",
+            "purpose": "Distinguishes unique users for analytics",
+            "duration": "2 years",
+            "provider": "Third-party (Google LLC, USA)"
+          },
+          {
+            "name": "_gid",
+            "purpose": "Distinguishes users for 24-hour analytics",
+            "duration": "24 hours",
+            "provider": "Third-party (Google LLC, USA)"
+          }
+        ]
+      },
+      "marketing": {
+        "cookies": [
+          {
+            "name": "Example (not currently used)",
+            "purpose": "Marketing tracking placeholder",
+            "duration": "N/A",
+            "provider": "N/A"
+          }
+        ]
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "AR Automation respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and protect your information when you visit our website."
+    },
+    "collection": {
+      "title": "Information We Collect",
+      "content": "We may collect the following types of information:",
+      "items": {
+        "personal": "Personal Information: Name, email address, phone number, and company name when you contact us or request our services",
+        "usage": "Usage Data: Information about how you use our website, including pages visited, time spent, and navigation patterns",
+        "technical": "Technical Data: IP address, browser type, device information, and cookie data"
+      }
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "content": "We use your information for the following purposes:",
+      "items": {
+        "service": "To provide and improve our services",
+        "communication": "To communicate with you about inquiries, updates, and marketing (with your consent)",
+        "improvement": "To analyze and improve our website performance and user experience",
+        "analytics": "To understand user behavior through analytics (only with your consent)"
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "content": "We use cookies and similar tracking technologies to enhance your experience. You can manage your cookie preferences at any time.",
+      "manageButton": "Manage Cookie Preferences"
+    },
+    "security": {
+      "title": "Data Storage and Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. Your data is stored securely and retained only for as long as necessary to fulfill the purposes outlined in this policy."
+    },
+    "rights": {
+      "title": "Your Rights (GDPR)",
+      "content": "Under the General Data Protection Regulation (GDPR), you have the following rights:",
+      "items": {
+        "access": {
+          "title": "Right to Access",
+          "description": "You can request a copy of the personal data we hold about you"
+        },
+        "rectification": {
+          "title": "Right to Rectification",
+          "description": "You can request correction of inaccurate or incomplete data"
+        },
+        "erasure": {
+          "title": "Right to Erasure",
+          "description": "You can request deletion of your personal data (\"right to be forgotten\")"
+        },
+        "portability": {
+          "title": "Right to Data Portability",
+          "description": "You can request your data in a structured, commonly used format"
+        },
+        "objection": {
+          "title": "Right to Object",
+          "description": "You can object to processing of your data for certain purposes"
+        },
+        "restriction": {
+          "title": "Right to Restriction",
+          "description": "You can request restriction of processing in certain circumstances"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "If you have any questions about this privacy policy or wish to exercise your rights, please contact us:",
+      "company": "AR Automation",
+      "email": "Email: privacy@arautomation.com"
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "content": "We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on this page with an updated \"Last Updated\" date."
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: January 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains how AR Automation uses cookies and similar tracking technologies when you visit our website. This policy provides detailed information about the types of cookies we use, why we use them, and how you can control them."
+    },
+    "whatAreCookies": {
+      "title": "What Are Cookies?",
+      "content": "Cookies are small text files that are placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners. Cookies can be \"persistent\" or \"session\" cookies. Persistent cookies remain on your device after you close your browser, while session cookies are deleted when you close your browser."
+    },
+    "howWeUse": {
+      "title": "How We Use Cookies",
+      "content": "We use cookies to improve your browsing experience, analyze site traffic, personalize content, and understand how our website is used. Cookies help us remember your preferences, provide relevant features, and ensure the website functions properly."
+    },
+    "categories": {
+      "title": "Types of Cookies We Use"
+    },
+    "detailedList": {
+      "title": "Detailed Cookie Information",
+      "content": "Below is a comprehensive list of all cookies used on our website, including their purpose, duration, and provider information."
+    },
+    "managing": {
+      "title": "Managing Your Cookie Preferences",
+      "content": "You can manage your cookie preferences at any time by clicking the button below. This will open our cookie settings where you can enable or disable different types of cookies.",
+      "button": "Manage Cookie Preferences"
+    },
+    "browserSettings": {
+      "title": "Browser Cookie Settings",
+      "content": "Most web browsers allow you to control cookies through their settings. You can set your browser to refuse cookies or delete certain cookies. Please note that if you disable cookies, some features of our website may not function properly. To learn more about how to manage cookies in your browser, please refer to your browser's help documentation."
+    },
+    "contact": {
+      "title": "Questions About Cookies?",
+      "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:"
+    }
   }
 }

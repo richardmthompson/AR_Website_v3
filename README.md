@@ -1,275 +1,264 @@
 # AR Automation Website
 
-Full-stack application with AI-powered chatbot for lead qualification and automation consulting.
+Full-stack application with AI-powered chatbot (Max) for lead qualification and automation consulting, with a specialization in EdTech.
 
 ## Project Overview
 
-AR Automation helps businesses identify and implement automation solutions. This application features:
+AR Automation helps businesses identify and implement automation solutions through:
 
-- AI chatbot (Max) that qualifies leads through natural conversation
-- Multi-language support (English/German)
-- Lead tracking and management
-- Industry-specific automation recommendations (Accounting, E-commerce, Education)
+- **AI Chatbot (Max)** - Conversational lead qualification using LangGraph + OpenAI
+- **Multi-page Marketing Site** - Solutions, resources, demos, use cases
+- **Multi-language Support** - English/German (i18next)
+- **Industry-specific Recommendations** - EdTech, Accounting, E-commerce, and more
+- **Lead Management** - Track conversations and qualified leads
+
+## Quick Start
+
+### Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running
+- [OpenAI API key](https://platform.openai.com/api-keys)
+- Text editor (VS Code, Cursor, etc.)
+
+### 1. Clone & Configure
+
+```bash
+git clone <repository-url>
+cd ar3_website
+cp .env.example .env
+```
+
+### 2. Edit `.env` File
+
+Open `.env` and configure:
+
+```env
+# Use local Docker database
+DATABASE_URL=postgresql://postgres:postgres@db:5432/ar_automation
+
+# PostgreSQL settings
+POSTGRES_DB=ar_automation
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+
+# Add your OpenAI API key (REQUIRED)
+OPENAI_API_KEY=sk-your-actual-key-here
+
+# Development mode
+ENVIRONMENT=development
+NODE_ENV=development
+
+# Ports
+FRONTEND_PORT=3000
+BACKEND_PORT=8000
+```
+
+### 3. Start Docker Services
+
+```bash
+docker-compose up --build
+```
+
+**First run takes 3-5 minutes** to build images and install dependencies.
+
+### 4. Verify Setup
+
+Open in your browser:
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000/docs
+- **Health Check**: http://localhost:8000/health
+
+You should see the AR Automation landing page with the Max chatbot widget.
 
 ## Architecture
 
-This is a **separated frontend + backend architecture**:
-
 ```
-AR_Website_v3/
-├── frontend/          # React + Vite + TypeScript
-│   ├── src/          # Application source code
-│   ├── public/       # Static assets
-│   └── package.json
+ar3_website/
+├── frontend/              # React + Vite + TypeScript
+│   ├── src/
+│   │   ├── pages/        # HomePage, SolutionsPage, ResourcesPage, etc.
+│   │   ├── components/   # UI components
+│   │   └── ...
+│   └── Dockerfile        # Frontend container
 │
-├── backend/           # FastAPI + LangGraph + Python
-│   ├── app/          # Python application code
-│   ├── tests/        # Backend tests
-│   └── requirements.txt
+├── backend/              # FastAPI + LangGraph + Python
+│   ├── app/
+│   │   ├── main.py              # API routes
+│   │   ├── langgraph_agent.py   # AI conversation agent
+│   │   ├── models.py            # Database models
+│   │   └── ...
+│   └── Dockerfile        # Backend container
 │
-├── docker-compose.yml      # Development environment
-├── docker-compose.prod.yml # Production environment
-├── Dockerfile.frontend     # Frontend container
-├── Dockerfile.backend      # Backend container
-└── nginx.conf             # Nginx configuration
+├── docs/                 # Technical documentation
+├── .claude/              # Context engineering framework
+├── docker-compose.yml    # Container orchestration
+└── .env                  # Environment configuration
 ```
 
 ## Tech Stack
 
 ### Frontend
-- React 18 + TypeScript
-- Vite (build tool)
-- Tailwind CSS
-- Wouter (routing)
-- TanStack Query
-- Radix UI components
+- React 18 + TypeScript + Vite
+- Tailwind CSS for styling
+- Wouter for routing
+- TanStack Query for data fetching
+- Radix UI (shadcn/ui) components
+- i18next for translations
+- react-hook-form + zod for forms
 
 ### Backend
-- FastAPI (Python)
-- LangChain + LangGraph
-- OpenAI GPT-4
+- FastAPI (Python web framework)
+- LangChain + LangGraph (AI orchestration)
+- OpenAI GPT-4 (language model)
 - SQLAlchemy + PostgreSQL
-- Pydantic
+- Pydantic for validation
 
 ### Infrastructure
 - Docker + Docker Compose
-- Nginx (reverse proxy)
-- PostgreSQL (Neon or local)
+- PostgreSQL (local Docker)
 
-## Getting Started
+## Development Workflow
 
-### Prerequisites
+### Making Changes
 
-- Docker & Docker Compose
-- Node.js 20+ (for local frontend development)
-- Python 3.11+ (for local backend development)
-- OpenAI API key
-- PostgreSQL database (or Neon)
+Code changes auto-reload:
+- **Frontend**: Edit `frontend/src/` → browser refreshes
+- **Backend**: Edit `backend/app/` → server reloads
+- **Database**: Data persists across container restarts
 
-### Quick Start with Docker
+### Viewing Logs
 
-1. Clone the repository
-2. Copy `.env.example` to `.env` and configure:
-   ```bash
-   cp .env.example .env
-   ```
-3. Add your OpenAI API key to `.env`
-4. Start all services:
-   ```bash
-   docker-compose up --build
-   ```
-
-Access the application:
-- Frontend: http://localhost
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
-
-### Local Development
-
-#### Frontend Only
 ```bash
-cd frontend
-npm install
-npm run dev
-# Visit http://localhost:5173
-```
-
-#### Backend Only
-```bash
-cd backend
-pip install -r requirements.txt
-cd app
-uvicorn main:app --reload
-# Visit http://localhost:8000
-```
-
-## Environment Variables
-
-Create `.env` file in root directory:
-
-```env
-# Database
-POSTGRES_DB=ar_automation
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_PORT=5432
-
-# Or use external Neon database
-DATABASE_URL=postgresql://user:pass@host/db
-
-# API Keys
-OPENAI_API_KEY=your-key-here
-LANGCHAIN_API_KEY=optional
-LANGCHAIN_TRACING_V2=false
-
-# Ports
-FRONTEND_PORT=80
-BACKEND_PORT=8000
-```
-
-## Docker Deployment
-
-### Architecture Diagram
-
-```
-┌─────────────┐
-│   Browser   │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────────┐
-│  Frontend       │
-│  (Nginx)        │
-│  Port 80        │
-└────────┬────────┘
-         │
-         ├─────────► Static Files
-         │
-         └─────────► /api/* ──┐
-                               │
-                               ▼
-                    ┌──────────────────┐
-                    │  Backend         │
-                    │  (FastAPI)       │
-                    │  Port 8000       │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │  Database        │
-                    │  (PostgreSQL)    │
-                    │  Port 5432       │
-                    └──────────────────┘
-```
-
-### Development
-
-Start all services:
-```bash
-docker-compose up --build
-```
-
-Run in background:
-```bash
-docker-compose up -d --build
-```
-
-### Production
-
-Using external database (recommended):
-```bash
-docker-compose -f docker-compose.prod.yml up -d
-```
-
-### Common Docker Commands
-
-**Stop Services:**
-```bash
-# Stop all services
-docker-compose down
-
-# Stop and remove volumes (⚠️ deletes database data)
-docker-compose down -v
-```
-
-**View Logs:**
-```bash
-# All logs
+# All services
 docker-compose logs -f
 
 # Specific service
 docker-compose logs -f backend
 docker-compose logs -f frontend
+docker-compose logs -f db
 ```
 
-**Restart Services:**
-```bash
-# Restart all
-docker-compose restart
+### Stopping Services
 
-# Restart specific service
+```bash
+# Stop containers (keeps data)
+docker-compose down
+
+# Stop and delete database data
+docker-compose down -v
+```
+
+### Restarting
+
+```bash
+# After changing dependencies (package.json, requirements.txt)
+docker-compose up --build
+
+# Normal restart
 docker-compose restart backend
 ```
 
-**Check Status:**
-```bash
-docker-compose ps
-```
+### Running Commands in Containers
 
-**Execute Commands in Containers:**
 ```bash
-# Backend shell
-docker-compose exec backend sh
+# Backend Python shell
+docker-compose exec backend python
 
 # Database shell
 docker-compose exec db psql -U postgres -d ar_automation
+
+# Frontend shell
+docker-compose exec frontend sh
 ```
 
-### Troubleshooting
+## Common Issues
 
-**Port Already in Use:**
+### Port Already in Use
 
 Change ports in `.env`:
 ```env
-FRONTEND_PORT=8080  # Change from 80
+FRONTEND_PORT=3001  # Change from 3000
 BACKEND_PORT=8001   # Change from 8000
 ```
 
-**Database Connection Issues:**
+### Database Connection Failed
 
-Check database is healthy:
+Check database health:
 ```bash
 docker-compose ps
 docker-compose logs db
+docker-compose restart db
 ```
 
-**Build Failures:**
+### OpenAI API Errors
 
-Clean and rebuild:
+1. Verify your API key in `.env`
+2. Check you have credits: https://platform.openai.com/usage
+3. Restart backend: `docker-compose restart backend`
+
+### "No Space Left on Device"
+
+Clean up Docker:
+```bash
+docker system prune -a
+docker volume prune
+```
+
+### Build Failures
+
+Clean rebuild:
 ```bash
 docker-compose down -v
 docker system prune -a
 docker-compose up --build
 ```
 
-**Frontend Can't Reach Backend:**
+## Application Pages
 
-Verify backend health:
+The site includes multiple pages (all routed via Wouter):
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Landing page with hero, chatbot, verticals |
+| `/solutions` | Solutions architecture & technical capabilities |
+| `/resources` | Resource library and documentation |
+| `/demos` | Interactive demos and examples |
+| `/edtech-solutions` | EdTech-specific automation solutions |
+| `/conference` | Conference materials |
+| `/use-cases` | Customer success stories |
+## Production Deployment
+
+This application automatically deploys to DigitalOcean when code is pushed to the `main` branch.
+
+### Automated Deployment
+
+- **Trigger:** Push to `main` branch
+- **Platform:** DigitalOcean $6 Droplet
+- **Orchestration:** Docker Compose
+- **CI/CD:** GitHub Actions
+
+### Setup Instructions
+
+For complete deployment setup instructions, see [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md).
+
+### Quick Deploy
+
 ```bash
-curl http://localhost:8000/health
+# Manual deployment on server
+ssh root@YOUR_DROPLET_IP
+cd /root/AR_Website_v3
+./deploy.sh
 ```
 
-Check nginx configuration:
-```bash
-docker-compose exec frontend cat /etc/nginx/nginx.conf
-```
+### Monitoring
 
-### Security Notes
+- Application: http://YOUR_DROPLET_IP
+- API Health: http://YOUR_DROPLET_IP:8000/health
+- Logs: `docker-compose -f docker-compose.prod.yml logs -f`
 
-1. **Never commit `.env` file** - Contains sensitive API keys
-2. **Change default passwords** - Update PostgreSQL password in production
-3. **Use HTTPS** - In production, use reverse proxy (Traefik, Caddy) for SSL
-4. **Limit exposed ports** - Only expose necessary ports externally
+### Quick Reference
+
+For common deployment commands, see [docs/DEPLOYMENT_QUICK_REF.md](./docs/DEPLOYMENT_QUICK_REF.md).
 
 ## Project Structure Details
 
@@ -279,64 +268,92 @@ See individual README files:
 
 ## API Documentation
 
-Interactive API documentation available at:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-- OpenAPI JSON: http://localhost:8000/openapi.json
-
-## Type Sharing
-
-Frontend can generate TypeScript types from backend OpenAPI schema:
-
-```bash
-cd frontend
-npx openapi-typescript http://localhost:8000/openapi.json -o src/types/api.ts
-```
-
-## Health Checks
-
-- Frontend: http://localhost/health
-- Backend: http://localhost:8000/health
+Interactive API docs:
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+- **OpenAPI JSON**: http://localhost:8000/openapi.json
 
 ## Database
 
-The application uses PostgreSQL with three main tables:
-- `conversations` - Chat sessions
-- `messages` - Individual messages
+PostgreSQL with three main tables (auto-created on first run):
+- `conversations` - Chat sessions with language preference
+- `messages` - Individual chat messages
 - `leads` - Qualified lead information
 
-Tables are auto-created on first run.
+### Accessing Database
 
-## Features
+```bash
+# Connect to database
+docker-compose exec db psql -U postgres -d ar_automation
 
-- AI-powered lead qualification chatbot
-- Conversation history and context
-- Multi-language support (EN/DE)
-- Industry-specific recommendations
-- Contact information collection
-- Lead status tracking
-- Responsive design
-- Dark/light theme
+# View tables
+\dt
+
+# Query conversations
+SELECT * FROM conversations;
+```
 
 ## Testing
 
 ### Frontend
+
 ```bash
 cd frontend
-npm run check  # TypeScript checking
+npm run check  # TypeScript type checking
+npm run lint   # ESLint
 ```
 
 ### Backend
+
 ```bash
 cd backend
-pytest
+pytest  # (when tests are implemented)
 ```
 
+## Deployment
+
+Using Docker Compose:
+
+```bash
+docker-compose up --build
+```
+
+Configure environment variables in `.env` for your target environment (development or production).
+
+## Additional Documentation
+
+- **[CLAUDE.md](./CLAUDE.md)** - Development guidelines and patterns for AI assistant
+- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contribution guidelines
+- **[docs/max_chatbot.md](./docs/max_chatbot.md)** - Max chatbot specification
+- **[docs/email-automation-research.md](./docs/email-automation-research.md)** - Email automation research
+- **[.claude/](./.claude/)** - Context engineering framework (PRPs, commands, artifacts)
+
+## Security Notes
+
+1. **Never commit `.env`** - Contains sensitive API keys
+2. **Change default passwords** - Update PostgreSQL credentials in production
+3. **Use HTTPS in production** - Configure SSL/TLS
+4. **Rotate API keys regularly** - Especially OpenAI keys
+
+## Environment Variables Reference
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | Local Docker DB |
+| `OPENAI_API_KEY` | OpenAI API key | **Required** |
+| `POSTGRES_DB` | Database name | `ar_automation` |
+| `POSTGRES_USER` | Database user | `postgres` |
+| `POSTGRES_PASSWORD` | Database password | `postgres` |
+| `FRONTEND_PORT` | Frontend port | `3000` |
+| `BACKEND_PORT` | Backend port | `8000` |
+| `ENVIRONMENT` | Environment mode | `development` |
 
 ## License
 
 Private - AR Automation
 
 ## Support
+
+For development patterns and Claude Code usage, see [CLAUDE.md](./CLAUDE.md).
 
 For questions or issues, contact AR Automation support.

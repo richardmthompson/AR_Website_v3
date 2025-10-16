@@ -55,19 +55,21 @@ export default function EdTechSolutionsPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Current Industry Context</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-foreground leading-relaxed mb-6">
-              The education technology sector is undergoing significant transformation. Alternative credentials are becoming mainstream, AI integration is accelerating, and international student mobility continues growing. However, a critical gap has emerged: <strong>operational infrastructure hasn't kept pace with strategic ambitions</strong>.
+              The education technology sector is undergoing significant transformation. Alternative credentials are becoming mainstream, AI integration is accelerating, and international student mobility continues growing.</p>
+            <p className="text-lg text-foreground leading-relaxed mb-6">
+ However, <strong>operational infrastructure may not be keeping pace with strategic ambitions</strong>.
             </p>
             <p className="text-lg text-foreground leading-relaxed mb-4">
-              The strategic vision exists—organizations know where they need to go—but operational workflows are breaking under the load:
+              Even when organizations know where they need to go, the use of technology may not always be effectively facilitating those goals.  Increasingly, success requires scale, and scale demands increasing automation of technological bottlenecks.
             </p>
             <ul className="space-y-3 text-lg text-foreground mb-6">
               <li><strong>Universities</strong> launching micro-credential programs lack systems to issue thousands of credentials when built for annual degree ceremonies</li>
-              <li><strong>EdTech companies</strong> scaling from 10 to 100 customers face month-long onboarding bottlenecks</li>
+              <li><strong>EdTech companies</strong> scaling from 10 to 100 customers could face month-long onboarding bottlenecks</li>
               <li><strong>Assessment organizations</strong> can't hire evaluators fast enough</li>
-              <li><strong>International admissions teams</strong> manually process multilingual applications</li>
+              <li><strong>International admissions teams</strong> manually process larger numbers of multilingual applications</li>
             </ul>
             <p className="text-lg text-foreground leading-relaxed font-semibold">
-              <strong>Organizations need operational automation infrastructure, not more strategy consulting.</strong>
+              <strong>Organizations need operational automation infrastructure and tools, not more strategy consulting.</strong>
             </p>
           </div>
         </div>
@@ -216,8 +218,8 @@ export default function EdTechSolutionsPage() {
         </div>
       </section>
 
-      {/* Prospect Solutions Section */}
-      <section className="py-20">
+      {/* Prospect Solutions Section - Commented out, available on /edtechsummit for internal research */}
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Sample Solution Workflows by Organization Type</h2>
@@ -230,7 +232,6 @@ export default function EdTechSolutionsPage() {
           </div>
           <ProspectSolutionTabs />
 
-          {/* Link to full case studies */}
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-4">
               Want to explore more detailed automation scenarios?
@@ -242,7 +243,7 @@ export default function EdTechSolutionsPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Integration Points Section */}
       <section className="py-20 bg-accent-cream/30">

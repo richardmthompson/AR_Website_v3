@@ -52,10 +52,20 @@ docker-compose*.yml
 # Documentation
 *.md
 !README.md
+docs/
 
 # Testing
 coverage/
 .nyc_output/
+**/tests
+**/*.test.*
+**/*.spec.*
+
+# GitHub
+.github/
+
+# PRPs
+PRPs/
 
 # Misc
 .DS_Store
