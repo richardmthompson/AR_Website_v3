@@ -665,6 +665,16 @@ Based on integrated analysis, here are the **10 highest-value meetings** in orde
 
 ## Part 5: Conversation Starters - Enhanced with Speaker Intelligence
 
+# Opener
+> Introduce & Give card
+> AI Engineer
+> Architect and build agents to support orgs operational bottlenecks
+> Basic functions: onboarding / enrollment, customer service chat bots
+> More complex: Document processing and interfacing, judgement-involving automations
+
+We're seeing that with the advancements of agentic capabilities, a lot of things that could only have been done by humans until recently, already now doesn't make sense for humans to be doing.  A lot of information processing type activities can be replaced.
+
+
 ### Steve Hardgrave (Varthana) - TIER 1 PRIORITY
 
 **Background Intelligence:**
