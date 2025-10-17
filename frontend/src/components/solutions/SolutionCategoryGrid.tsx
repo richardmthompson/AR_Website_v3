@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { solutionCategories } from "@/lib/edtech-solutions";
+import { solutionCategories } from "@/data/edtech-solutions";
 import SolutionCategoryCard from "./SolutionCategoryCard";
 
 const filters = [

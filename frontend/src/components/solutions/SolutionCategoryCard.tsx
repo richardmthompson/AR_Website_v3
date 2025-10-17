@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SolutionCategory } from "@/lib/edtech-solutions";
+import { SolutionCategory } from "@/data/edtech-solutions";
 import * as Icons from "lucide-react";
 import { XCircle, CheckCircle2, ChevronDown } from "lucide-react";
 
